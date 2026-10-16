@@ -115,7 +115,7 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
 def page(title, desc, body, root="", og_image=None):
     og = f'<meta property="og:image" content="{SITE}/{og_image}">' if og_image else ""
     return f'''<!doctype html>
-<html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="p:domain_verify" content="fdaa1a79643781f0e78cbfea120224f9"/>
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(desc)}">{og}
 <link rel="icon" href="{root}assets/favicon.png">{FONTS}<link rel="stylesheet" href="{root}style.css"></head>
 <body>
