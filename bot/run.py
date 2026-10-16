@@ -25,7 +25,7 @@ DISC = "As an Amazon Associate I earn from qualifying purchases."
 BOARD_NAME = os.environ.get("PINTEREST_BOARD", "Makeup Dupes")
 
 # ---------------------------------------------------------------- pin image
-INK, PLUM, TEAL, NAVY = (60, 12, 38), (98, 26, 64), (32, 90, 107), (42, 51, 62)
+INK, PLUM, TEAL, NAVY, RED = (78, 20, 52), (98, 26, 64), (32, 90, 107), (42, 51, 62), (143, 29, 51)
 DEEP = TEAL  # card labels
 MARK = ROOT / "assets" / "mark.png"
 FONT_DIRS = ["/usr/share/fonts/truetype/liberation", "/usr/share/fonts/truetype/liberation2"]
@@ -61,13 +61,13 @@ def _wrap(d, txt, f, maxw):
 def _canvas():
     im = Image.new("RGB", (W * K, H * K))
     d = ImageDraw.Draw(im)
-    top, bot = (248, 243, 246), (226, 207, 219)
+    top, bot = (244, 246, 248), (204, 211, 219)
     for y in range(H * K):
         t = y / (H * K)
         d.line([(0, y), (W * K, y)], fill=tuple(int(top[i] + (bot[i] - top[i]) * t) for i in range(3)))
     g = Image.new("L", im.size, 0)
     ImageDraw.Draw(g).ellipse((100 * K, 200 * K, 900 * K, 1100 * K), fill=140)
-    im = Image.composite(Image.new("RGB", im.size, (255, 252, 253)), im, g.filter(ImageFilter.GaussianBlur(160 * K)))
+    im = Image.composite(Image.new("RGB", im.size, (252, 253, 254)), im, g.filter(ImageFilter.GaussianBlur(160 * K)))
     return im, ImageDraw.Draw(im)
 
 
@@ -76,7 +76,16 @@ def _kicker(d, kick):
     b = d.textbbox((0, 0), kick, font=f)
     w = (b[2] - b[0]) / K + 70
     x0 = (W - w) / 2
-    d.rounded_rectangle((x0 * K, 110 * K, (x0 + w) * K, 174 * K), radius=32 * K, fill=PLUM)
+    im = d._image
+    box = (int(x0 * K), 110 * K, int((x0 + w) * K), 174 * K)
+    grad = Image.new("RGB", (box[2] - box[0], box[3] - box[1]))
+    gd = ImageDraw.Draw(grad)
+    for x in range(grad.width):
+        t = x / max(grad.width - 1, 1)
+        gd.line([(x, 0), (x, grad.height)], fill=tuple(int(PLUM[i] + (TEAL[i] - PLUM[i]) * t) for i in range(3)))
+    m = Image.new("L", grad.size, 0)
+    ImageDraw.Draw(m).rounded_rectangle((0, 0, grad.width - 1, grad.height - 1), radius=32 * K, fill=255)
+    im.paste(grad, box[:2], m)
     _ctext(d, kick, f, 125, (255, 255, 255))
 
 
@@ -126,7 +135,7 @@ def render_pin(item, out):
 
     def card(label, name, cy):
         d.rounded_rectangle((110 * K, cy * K, 890 * K, (cy + 190) * K), radius=28 * K,
-                            fill=(255, 255, 255), outline=(226, 208, 218), width=2 * K)
+                            fill=(255, 255, 255), outline=(208, 214, 222), width=2 * K)
         _ctext(d, label, font("LiberationSans-Bold.ttf", 26), cy + 30, DEEP)
         f2 = font("LiberationSerif-Bold.ttf", 44)
         lines = _wrap(d, name, f2, 700)
@@ -139,7 +148,7 @@ def render_pin(item, out):
             yy += 46
 
     card("THE VIRAL PICK", item["viral"], y + 60)
-    _ctext(d, "vs.", font("LiberationSerif-BoldItalic.ttf", 80), y + 290, TEAL)
+    _ctext(d, "vs.", font("LiberationSerif-BoldItalic.ttf", 80), y + 290, RED)
     card("THE DRUGSTORE DUPE", item["dupe"], y + 410)
     _ctext(d, item["cta"] + " →", font("LiberationSans-Bold.ttf", 36), y + 660, PLUM)
 
