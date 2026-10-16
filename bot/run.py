@@ -86,10 +86,13 @@ def render_pin(item, out):
         _ctext(d, label, font("LiberationSans-Bold.ttf", 26), cy + 30, DEEP)
         f2 = font("LiberationSerif-Bold.ttf", 44)
         lines = _wrap(d, name, f2, 700)
-        yy = cy + (80 if len(lines) > 1 else 95)
+        if len(lines) > 1:  # two-line names: smaller type so they sit inside the card
+            f2 = font("LiberationSerif-Bold.ttf", 38)
+            lines = _wrap(d, name, f2, 700)
+        yy = cy + (76 if len(lines) > 1 else 95)
         for ln in lines[:2]:
             _ctext(d, ln, f2, yy)
-            yy += 52
+            yy += 46
 
     card("THE VIRAL PICK", item["viral"], y + 60)
     _ctext(d, "vs.", font("LiberationSerif-BoldItalic.ttf", 80), y + 290)
