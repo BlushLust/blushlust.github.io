@@ -1,0 +1,227 @@
+[
+  {
+    "id": "filter-glow",
+    "category": "Complexion",
+    "title": "The glow filter",
+    "hook": [
+      "The glow filter",
+      "everyone wants"
+    ],
+    "viral": "Charlotte Tilbury Hollywood Flawless Filter",
+    "dupe": "e.l.f. Halo Glow Liquid Filter",
+    "blurb": "Probably the most famous dupe on the internet. A glowy, blurring liquid you wear under foundation, mixed in, or alone for a soft-focus finish.",
+    "cta": "Same soft-focus glow",
+    "tags": "#makeupdupes #drugstoremakeup #elfcosmetics #glowymakeup",
+    "posted": "2026-10-15"
+  },
+  {
+    "id": "liquid-blush",
+    "category": "Cheeks",
+    "title": "The liquid blush",
+    "hook": [
+      "That just-pinched",
+      "flush, for less"
+    ],
+    "viral": "Rare Beauty Soft Pinch Liquid Blush",
+    "dupe": "e.l.f. Camo Liquid Blush",
+    "blurb": "A tiny dot goes a long way with both. Highly pigmented, blendable cheek colour for that flushed, just-pinched look.",
+    "cta": "A tiny dot goes a long way",
+    "tags": "#blushdupe #rarebeauty #makeupdupes #drugstoremakeup",
+    "posted": "2026-10-15"
+  },
+  {
+    "id": "lip-oil",
+    "category": "Lips",
+    "title": "The lip oil",
+    "hook": [
+      "Juicy, glossy",
+      "lips for less"
+    ],
+    "viral": "Dior Addict Lip Glow Oil",
+    "dupe": "NYX Fat Oil Lip Drip",
+    "blurb": "Glossy, cushiony lip oil with a hint of tint. The NYX version is a fan favourite for the same juicy shine.",
+    "cta": "Same juicy shine",
+    "tags": "#lipoil #diorlipoil #makeupdupes #nyxcosmetics",
+    "posted": null
+  },
+  {
+    "id": "brow-pencil",
+    "category": "Brows",
+    "title": "The skinny brow pencil",
+    "hook": [
+      "Sharp, sculpted",
+      "brows for less"
+    ],
+    "viral": "Anastasia Beverly Hills Brow Wiz",
+    "dupe": "NYX Micro Brow Pencil",
+    "blurb": "An ultra-fine tip for hair-like strokes. Perfect for sharp, sculpted arches that frame your whole face.",
+    "cta": "Hair-like strokes",
+    "tags": "#browdupe #browtutorial #makeupdupes #nyxcosmetics",
+    "posted": null
+  },
+  {
+    "id": "mascara",
+    "category": "Lashes",
+    "title": "The lengthening mascara",
+    "hook": [
+      "Sky-high lashes",
+      "without the splurge"
+    ],
+    "viral": "Too Faced Better Than Sex Mascara",
+    "dupe": "Maybelline Lash Sensational Sky High",
+    "blurb": "Long, lifted, fluttery lashes. Sky High went viral for its flexible brush and serious length.",
+    "cta": "Long, lifted lashes",
+    "tags": "#mascaradupe #skyhighmascara #makeupdupes #drugstoremakeup",
+    "posted": null
+  },
+  {
+    "id": "setting-powder",
+    "category": "Complexion",
+    "title": "The setting powder",
+    "hook": [
+      "Blur and set",
+      "for less"
+    ],
+    "viral": "Laura Mercier Translucent Loose Setting Powder",
+    "dupe": "Coty Airspun Loose Face Powder",
+    "blurb": "A finely milled powder to lock makeup in place and blur shine. Airspun has been a cult classic for decades.",
+    "cta": "A cult classic for a reason",
+    "tags": "#settingpowder #makeupdupes #drugstoremakeup #bakingmakeup",
+    "posted": null
+  },
+  {
+    "id": "grip-primer",
+    "category": "Complexion",
+    "title": "The gripping primer",
+    "hook": [
+      "Makeup that",
+      "stays put"
+    ],
+    "viral": "Milk Makeup Hydro Grip Primer",
+    "dupe": "e.l.f. Power Grip Primer",
+    "blurb": "A sticky, hydrating gel primer that helps makeup grip and last all day. The e.l.f. version sold out repeatedly when it went viral.",
+    "cta": "All-day grip",
+    "tags": "#primerdupe #elfcosmetics #makeupdupes #longwearmakeup",
+    "posted": null
+  },
+  {
+    "id": "putty-primer",
+    "category": "Complexion",
+    "title": "The pore-blurring primer",
+    "hook": [
+      "Smooth, poreless",
+      "skin for less"
+    ],
+    "viral": "Tatcha The Silk Canvas",
+    "dupe": "e.l.f. Poreless Putty Primer",
+    "blurb": "A velvety balm-like primer that smooths the look of pores and gives a soft, silky base.",
+    "cta": "Silky smooth base",
+    "tags": "#poreprimer #tatcha #elfcosmetics #makeupdupes",
+    "posted": null
+  },
+  {
+    "id": "concealer",
+    "category": "Complexion",
+    "title": "The full-coverage concealer",
+    "hook": [
+      "Full coverage,",
+      "fraction of the price"
+    ],
+    "viral": "Tarte Shape Tape Concealer",
+    "dupe": "e.l.f. Hydrating Camo Concealer",
+    "blurb": "Big doe-foot applicator, serious coverage. The e.l.f. Camo concealer is one of the most talked-about drugstore dupes ever.",
+    "cta": "Serious coverage",
+    "tags": "#concealerdupe #shapetape #elfcosmetics #makeupdupes",
+    "posted": null
+  },
+  {
+    "id": "highlight-wand",
+    "category": "Glow",
+    "title": "The highlighter wand",
+    "hook": [
+      "That lit-from-within",
+      "glow for less"
+    ],
+    "viral": "Charlotte Tilbury Beauty Light Wand",
+    "dupe": "e.l.f. Halo Glow Highlight Beauty Wand",
+    "blurb": "A cushion-tip wand for a dewy, lit-from-within glow on cheekbones, brow bones and the bridge of the nose.",
+    "cta": "Dewy, lit-from-within glow",
+    "tags": "#highlighter #charlottetilbury #elfcosmetics #makeupdupes",
+    "posted": null
+  },
+  {
+    "id": "contour-wand",
+    "category": "Glow",
+    "title": "The contour wand",
+    "hook": [
+      "Snatched contour",
+      "made easy"
+    ],
+    "viral": "Charlotte Tilbury Hollywood Contour Wand",
+    "dupe": "e.l.f. Halo Glow Contour Beauty Wand",
+    "blurb": "A cushion-tip cream contour that blends out easily for soft, sculpted definition.",
+    "cta": "Soft, sculpted definition",
+    "tags": "#contour #charlottetilbury #elfcosmetics #makeupdupes",
+    "posted": null
+  },
+  {
+    "id": "bronzing-drops",
+    "category": "Glow",
+    "title": "The bronzing drops",
+    "hook": [
+      "Sun-kissed glow",
+      "in a few drops"
+    ],
+    "viral": "Drunk Elephant D-Bronzi Bronzing Drops",
+    "dupe": "e.l.f. Bronzing Drops",
+    "blurb": "Mix a few drops into moisturizer or foundation for a warm, sun-kissed glow, all year round.",
+    "cta": "Sun-kissed, all year",
+    "tags": "#bronzingdrops #drunkelephant #elfcosmetics #makeupdupes",
+    "posted": null
+  },
+  {
+    "id": "brow-gel",
+    "category": "Brows",
+    "title": "The tinted brow gel",
+    "hook": [
+      "Full, fluffy",
+      "brows for less"
+    ],
+    "viral": "Benefit Gimme Brow+ Volumizing Brow Gel",
+    "dupe": "e.l.f. Wow Brow Gel",
+    "blurb": "Tinted, fibre-filled brow gel that adds volume and holds brows in place in seconds.",
+    "cta": "Fluffy brows in seconds",
+    "tags": "#browgel #benefitcosmetics #elfcosmetics #makeupdupes",
+    "posted": null
+  },
+  {
+    "id": "bronzer",
+    "category": "Glow",
+    "title": "The cult bronzer",
+    "hook": [
+      "Warm, bronzed",
+      "skin for less"
+    ],
+    "viral": "Benefit Hoola Matte Bronzer",
+    "dupe": "Physicians Formula Murumuru Butter Bronzer",
+    "blurb": "A soft, buildable bronzer for warmth and gentle sculpting. The Butter Bronzer is a long-time drugstore favourite.",
+    "cta": "Buildable warmth",
+    "tags": "#bronzer #benefithoola #makeupdupes #drugstoremakeup",
+    "posted": null
+  },
+  {
+    "id": "setting-spray",
+    "category": "Complexion",
+    "title": "The setting spray",
+    "hook": [
+      "Makeup that lasts",
+      "all night"
+    ],
+    "viral": "Urban Decay All Nighter Setting Spray",
+    "dupe": "e.l.f. Stay All Night Micro-Fine Setting Mist",
+    "blurb": "A fine mist that locks makeup in place so it lasts from morning coffee to last call.",
+    "cta": "Locked in all night",
+    "tags": "#settingspray #urbandecay #elfcosmetics #makeupdupes",
+    "posted": null
+  }
+]
