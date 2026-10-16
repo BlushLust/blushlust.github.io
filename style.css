@@ -1,7 +1,7 @@
 :root{
-  --ink:#3c0c26; --ink-soft:#5a4652; --plum:#621a40; --teal:#205a6b; --navy:#2a333e;
-  --blush:#efe3ea; --blush-deep:#205a6b;
-  --cream:#f8f4f6; --card:#ffffff; --line:#e6d6df; --text:#2e2630;
+  --ink:#4e1434; --ink-soft:#4f5964; --plum:#621a40; --teal:#205a6b; --navy:#2a333e; --red:#8f1d33;
+  --blush:#e8eef1; --blush-deep:#205a6b;
+  --cream:#f2f4f6; --card:#ffffff; --line:#d9dee4; --text:#2a333e;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -11,7 +11,7 @@ img{max-width:100%;display:block}
 .wrap{max-width:860px;margin:0 auto;padding:0 20px}
 
 /* header */
-.site-head{background:#fff;border-bottom:1px solid var(--line)}
+.site-head{background:#fff;border-bottom:3px solid transparent;border-image:linear-gradient(90deg,var(--plum),var(--teal)) 1}
 .site-head .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
 .brand img{width:52px;height:52px}
@@ -30,7 +30,7 @@ img{max-width:100%;display:block}
 /* cards */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px;padding-bottom:48px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;text-decoration:none;color:inherit;transition:transform .15s,box-shadow .15s}
-.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(60,12,38,.10)}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(42,51,62,.12)}
 .card .tag{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blush-deep);font-weight:700}
 .card h2{font-family:"Playfair Display",Georgia,serif;font-size:1.35rem;margin:8px 0;color:var(--ink)}
 .card p{margin:0;font-size:.95rem}
@@ -45,7 +45,7 @@ article h1{font-family:"Playfair Display",Georgia,serif;font-size:clamp(2rem,5vw
 .vs{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin:14px 0}
 .vs div{background:var(--cream);border-radius:12px;padding:12px;text-align:center;font-size:.92rem}
 .vs b{display:block;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blush-deep)}
-.vs .arrow{background:none;font-family:"Playfair Display",Georgia,serif;font-style:italic;color:var(--teal);font-size:1.1rem}
+.vs .arrow{background:none;font-family:"Playfair Display",Georgia,serif;font-style:italic;color:var(--red);font-size:1.1rem}
 .btn{display:inline-block;background:var(--plum);color:#fff;text-decoration:none;font-weight:600;padding:11px 20px;border-radius:999px;margin-top:6px}
 .btn:hover{background:var(--teal)}
 
