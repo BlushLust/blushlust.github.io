@@ -9,6 +9,7 @@ Each run:
 
 Run locally:  python bot/run.py           (one new dupe)
               python bot/run.py --rebuild (only rebuild pages, no new dupe)
+              python bot/run.py --rerender (re-draw every pin image + rebuild pages)
 """
 import base64, csv, datetime as dt, html, json, os, sys
 from pathlib import Path
@@ -24,7 +25,9 @@ DISC = "As an Amazon Associate I earn from qualifying purchases."
 BOARD_NAME = os.environ.get("PINTEREST_BOARD", "Makeup Dupes")
 
 # ---------------------------------------------------------------- pin image
-INK, DEEP = (92, 10, 40), (212, 106, 140)
+INK, PLUM, TEAL, NAVY = (60, 12, 38), (98, 26, 64), (32, 90, 107), (42, 51, 62)
+DEEP = TEAL  # card labels
+MARK = ROOT / "assets" / "mark.png"
 FONT_DIRS = ["/usr/share/fonts/truetype/liberation", "/usr/share/fonts/truetype/liberation2"]
 W, H, K = 1000, 1500, 2
 
@@ -55,34 +58,75 @@ def _wrap(d, txt, f, maxw):
     return lines + [cur]
 
 
-def render_pin(item, out):
+def _canvas():
     im = Image.new("RGB", (W * K, H * K))
     d = ImageDraw.Draw(im)
-    top, bot = (250, 214, 222), (230, 150, 175)
+    top, bot = (248, 243, 246), (226, 207, 219)
     for y in range(H * K):
         t = y / (H * K)
         d.line([(0, y), (W * K, y)], fill=tuple(int(top[i] + (bot[i] - top[i]) * t) for i in range(3)))
     g = Image.new("L", im.size, 0)
-    ImageDraw.Draw(g).ellipse((100 * K, 200 * K, 900 * K, 1100 * K), fill=130)
-    im = Image.composite(Image.new("RGB", im.size, (255, 240, 244)), im, g.filter(ImageFilter.GaussianBlur(160 * K)))
-    d = ImageDraw.Draw(im)
+    ImageDraw.Draw(g).ellipse((100 * K, 200 * K, 900 * K, 1100 * K), fill=140)
+    im = Image.composite(Image.new("RGB", im.size, (255, 252, 253)), im, g.filter(ImageFilter.GaussianBlur(160 * K)))
+    return im, ImageDraw.Draw(im)
 
-    # kicker pill
+
+def _kicker(d, kick):
     f = font("LiberationSans-Bold.ttf", 30)
-    kick = "VIRAL DUPE ALERT"
     b = d.textbbox((0, 0), kick, font=f)
     w = (b[2] - b[0]) / K + 70
     x0 = (W - w) / 2
-    d.rounded_rectangle((x0 * K, 110 * K, (x0 + w) * K, 174 * K), radius=32 * K, fill=INK)
+    d.rounded_rectangle((x0 * K, 110 * K, (x0 + w) * K, 174 * K), radius=32 * K, fill=PLUM)
     _ctext(d, kick, f, 125, (255, 255, 255))
 
+
+def _footer(im):
+    d = ImageDraw.Draw(im)
+    if MARK.exists():
+        m = Image.open(MARK).convert("RGBA").resize((150 * K, 150 * K), Image.LANCZOS)
+        im.paste(m, ((W * K - m.width) // 2, 1195 * K), m)
+    _ctext(d, "B L U S H   L U S T", font("LiberationSans-Bold.ttf", 36), 1352, NAVY)
+    _ctext(d, "G O U R M E T   B E A U T Y", font("LiberationSans-Bold.ttf", 20), 1402, TEAL)
+    _ctext(d, "blushlust.github.io", font("LiberationSans-Regular.ttf", 24), 1442, PLUM)
+
+
+def render_roundup(title, hook, entries, out):
+    im, d = _canvas()
+    _kicker(d, title)
+    y = 225
+    for ln in hook:
+        y += _ctext(d, ln, font("LiberationSerif-BoldItalic.ttf", 96), y) + 16
+    y += 50
+    f = font("LiberationSerif-Bold.ttf", 46)
+    fn = font("LiberationSans-Bold.ttf", 28)
+    for n, label in enumerate(entries, 1):
+        cx, cy = 245, y + 26
+        d.ellipse(((cx - 26) * K, (cy - 26) * K, (cx + 26) * K, (cy + 26) * K), fill=TEAL)
+        b = d.textbbox((0, 0), str(n), font=fn)
+        d.text((cx * K - (b[2] + b[0]) / 2, cy * K - (b[3] + b[1]) / 2), str(n), font=fn, fill=(255, 255, 255))
+        d.text((295 * K, (y + 1) * K), label, font=f, fill=INK)
+        y += 84
+    _footer(im)
+    im.resize((W, H), Image.LANCZOS).save(out)
+
+
+def render_pin(item, out):
+    im = Image.new("RGB", (W * K, H * K))
+    d = ImageDraw.Draw(im)
+    im, d = _canvas()
+    _kicker(d, "VIRAL DUPE ALERT")
+
     y = 230
+    size = 104
+    while size > 70 and max(d.textbbox((0, 0), ln, font=font("LiberationSerif-BoldItalic.ttf", size))[2]
+                            for ln in item["hook"]) > 880 * K:
+        size -= 4
     for ln in item["hook"]:
-        y += _ctext(d, ln, font("LiberationSerif-BoldItalic.ttf", 104), y) + 18
+        y += _ctext(d, ln, font("LiberationSerif-BoldItalic.ttf", size), y) + 18
 
     def card(label, name, cy):
         d.rounded_rectangle((110 * K, cy * K, 890 * K, (cy + 190) * K), radius=28 * K,
-                            fill=(255, 250, 251), outline=(240, 200, 212), width=2 * K)
+                            fill=(255, 255, 255), outline=(226, 208, 218), width=2 * K)
         _ctext(d, label, font("LiberationSans-Bold.ttf", 26), cy + 30, DEEP)
         f2 = font("LiberationSerif-Bold.ttf", 44)
         lines = _wrap(d, name, f2, 700)
@@ -95,13 +139,11 @@ def render_pin(item, out):
             yy += 46
 
     card("THE VIRAL PICK", item["viral"], y + 60)
-    _ctext(d, "vs.", font("LiberationSerif-BoldItalic.ttf", 80), y + 290)
+    _ctext(d, "vs.", font("LiberationSerif-BoldItalic.ttf", 80), y + 290, TEAL)
     card("THE DRUGSTORE DUPE", item["dupe"], y + 410)
-    _ctext(d, item["cta"] + " →", font("LiberationSans-Bold.ttf", 36), y + 660)
+    _ctext(d, item["cta"] + " →", font("LiberationSans-Bold.ttf", 36), y + 660, PLUM)
 
-    d.line([(380 * K, 1380 * K), (620 * K, 1380 * K)], fill=INK, width=3 * K)
-    _ctext(d, "B L U S H   L U S T", font("LiberationSerif-Regular.ttf", 34), 1400)
-    _ctext(d, "blushlust.github.io", font("LiberationSans-Regular.ttf", 26), 1448, (122, 42, 72))
+    _footer(im)
     im.resize((W, H), Image.LANCZOS).save(out)
 
 
@@ -109,22 +151,22 @@ def render_pin(item, out):
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700'
-         '&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">')
+         '&family=Montserrat:wght@700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">')
 
 
 def page(title, desc, body, root="", og_image=None):
     og = f'<meta property="og:image" content="{SITE}/{og_image}">' if og_image else ""
     return f'''<!doctype html>
 <html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="p:domain_verify" content="fdaa1a79643781f0e78cbfea120224f9"/>
-<title>{html.escape(title)}</title><meta name="description" content="{html.escape(desc)}">{og}
+<title>{html.escape(title)}</title><meta name="description" content="{html.escape(desc)}">{og}<meta name="theme-color" content="#3c0c26">
 <link rel="icon" href="{root}assets/favicon.png">{FONTS}<link rel="stylesheet" href="{root}style.css"></head>
 <body>
 <header class="site-head"><div class="wrap">
-<a class="brand" href="{root}index.html"><img src="{root}assets/logo.png" alt="Blush Lust logo"><span>Blush Lust</span></a>
+<a class="brand" href="{root}index.html"><img src="{root}assets/mark.png" alt="Blush Lust logo"><span><b>Blush Lust</b><small>Gourmet Beauty</small></span></a>
 <nav><a href="{root}index.html">Dupes</a><a href="{root}about.html">About</a></nav>
 </div></header>
 <main class="wrap">{body}</main>
-<footer><div class="wrap">&copy; {dt.date.today().year} Blush Lust &middot; Viral makeup looks for less.<br>{DISC} Prices and availability change often &mdash; always check the retailer for current details.<br><a href="{root}privacy.html">Privacy</a></div></footer>
+<footer><div class="wrap">&copy; {dt.date.today().year} Blush Lust &middot; Gourmet beauty &middot; Viral makeup looks for less.<br>{DISC} Prices and availability change often &mdash; always check the retailer for current details.<br><a href="{root}privacy.html">Privacy</a></div></footer>
 </body></html>'''
 
 
@@ -161,7 +203,7 @@ def write_index(items):
     for i in posted:
         cards.append(f'<a class="card" href="posts/{i["id"]}.html"><span class="tag">{html.escape(i["category"])}</span>'
                      f'<h2>{html.escape(i["viral"])} dupe</h2><p>{html.escape(i["dupe"])}</p></a>')
-    body = ('<section class="hero"><h1>Same glow,<br><em>smaller price.</em></h1>'
+    body = ('<section class="hero"><img class="hero-logo" src="assets/logo-full.png" alt="Blush Lust — Gourmet Beauty" width="320"><h1>Same glow,<br><em>smaller price.</em></h1>'
             '<p>We hunt down the drugstore dupes for the makeup going viral on TikTok and Pinterest &mdash; '
             'so you get the look without the luxury price tag.</p></section>'
             f'<section class="grid">{"".join(cards)}</section>')
@@ -222,13 +264,19 @@ def queue_manual(item):
 def main():
     items = json.loads(DATA.read_text(encoding="utf-8"))
     # backfill pages/images for anything already posted
+    rerender = "--rerender" in sys.argv
+    if rerender:
+        render_roundup("THE DUPE EDIT", ["6 viral makeup", "dupes worth", "the hype"],
+                       ["Glow filter", "Liquid blush", "Lip oil", "Skinny brow pencil",
+                        "Lengthening mascara", "Setting powder"],
+                       ROOT / "assets" / "pins" / "viral-makeup-dupes.png")
     for i in items:
         if i.get("posted"):
-            if not (ROOT / "assets" / "pins" / f"{i['id']}.png").exists():
+            if rerender or not (ROOT / "assets" / "pins" / f"{i['id']}.png").exists():
                 render_pin(i, ROOT / "assets" / "pins" / f"{i['id']}.png")
             write_post(i)
 
-    if "--rebuild" not in sys.argv:
+    if "--rebuild" not in sys.argv and not rerender:
         nxt = next((i for i in items if not i.get("posted")), None)
         if not nxt:
             print("Queue empty - add more dupes to data/dupes.json")
