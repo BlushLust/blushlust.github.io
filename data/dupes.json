@@ -553,5 +553,467 @@
     "cta": "Crisp, natural strokes",
     "tags": "#browpencil #benefitcosmetics #loreal #makeupdupes",
     "posted": "2026-10-28"
+  },
+  {
+    "id": "porefessional",
+    "category": "Complexion",
+    "title": "The pore-blurring primer",
+    "hook": [
+      "Blurred pores",
+      "for less"
+    ],
+    "viral": "Benefit The POREfessional Primer",
+    "dupe": "Maybelline Baby Skin Instant Pore Eraser",
+    "blurb": "A silky primer that softens the look of pores and fine lines for a smooth base.",
+    "cta": "Smooth, blurred base",
+    "tags": "#primer #benefitcosmetics #maybelline #makeupdupes"
+  },
+  {
+    "id": "maracuja-gloss",
+    "category": "Lips",
+    "title": "The plumping gloss",
+    "hook": [
+      "Juicy, plump lips",
+      "for less"
+    ],
+    "viral": "Tarte Maracuja Juicy Lip Plumping Gloss",
+    "dupe": "e.l.f. Pout Clout Lip Plumping Gloss",
+    "blurb": "A glossy, gently tingly gloss for fuller-looking, juicy lips.",
+    "cta": "Glossy and plump",
+    "tags": "#lipgloss #tarte #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "thrive-mascara",
+    "category": "Lashes",
+    "title": "The tubing mascara",
+    "hook": [
+      "Extension-like lashes",
+      "for less"
+    ],
+    "viral": "Thrive Causemetics Liquid Lash Extensions Mascara",
+    "dupe": "e.l.f. Lash XTNDR Tubing Mascara",
+    "blurb": "Tubing mascara that coats each lash for long, defined, extension-like length that won't smudge.",
+    "cta": "Long, defined lashes",
+    "tags": "#mascaradupe #thrivecausemetics #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "rhode-pocket",
+    "category": "Cheeks",
+    "title": "The cream blush stick",
+    "hook": [
+      "Pocket-sized flush",
+      "for less"
+    ],
+    "viral": "Rhode Pocket Blush",
+    "dupe": "MCoBeauty Blush & Go Cream Stick",
+    "blurb": "A creamy blush stick you swipe on and tap in for a soft, dewy flush on the go.",
+    "cta": "Swipe, tap, glow",
+    "tags": "#rhode #blushstick #mcobeauty #makeupdupes"
+  },
+  {
+    "id": "armani-silk",
+    "category": "Complexion",
+    "title": "The luminous foundation",
+    "hook": [
+      "Luminous skin",
+      "for less"
+    ],
+    "viral": "Giorgio Armani Luminous Silk Foundation",
+    "dupe": "L'Oreal True Match Lumi",
+    "blurb": "A lightweight, radiant foundation for natural-looking coverage with a lit-from-within finish.",
+    "cta": "Same luminous finish",
+    "tags": "#foundationdupe #armanibeauty #loreal #makeupdupes"
+  },
+  {
+    "id": "pillow-talk-liner",
+    "category": "Lips",
+    "title": "The nude lip liner",
+    "hook": [
+      "The perfect nude",
+      "liner for less"
+    ],
+    "viral": "Charlotte Tilbury Lip Cheat in Pillow Talk",
+    "dupe": "NYX Slim Lip Pencil in Peekaboo Neutral",
+    "blurb": "A soft pinky-nude liner to shape and define your lips before your favourite lipstick.",
+    "cta": "Same pinky-nude",
+    "tags": "#lipliner #pillowtalk #nyxcosmetics #makeupdupes"
+  },
+  {
+    "id": "hourglass-veil",
+    "category": "Complexion",
+    "title": "The translucent setting powder",
+    "hook": [
+      "Soft-focus set",
+      "for less"
+    ],
+    "viral": "Hourglass Veil Translucent Setting Powder",
+    "dupe": "e.l.f. Halo Glow Setting Powder",
+    "blurb": "A finely milled powder that sets makeup and blurs without looking cakey.",
+    "cta": "Soft-focus finish",
+    "tags": "#settingpowder #hourglass #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "kind-words",
+    "category": "Lips",
+    "title": "The matte lipstick",
+    "hook": [
+      "Soft matte lips",
+      "for less"
+    ],
+    "viral": "Rare Beauty Kind Words Matte Lipstick",
+    "dupe": "NYX Suede Matte Lipstick",
+    "blurb": "A comfortable, soft-matte lipstick with rich, everyday colour.",
+    "cta": "Comfy matte colour",
+    "tags": "#lipstick #rarebeauty #nyxcosmetics #makeupdupes"
+  },
+  {
+    "id": "dipbrow",
+    "category": "Brows",
+    "title": "The brow pomade",
+    "hook": [
+      "Bold, defined brows",
+      "for less"
+    ],
+    "viral": "Anastasia Beverly Hills Dipbrow Pomade",
+    "dupe": "NYX Tame & Frame Brow Pomade",
+    "blurb": "A creamy pomade for sculpted, defined brows that stay put all day.",
+    "cta": "Sculpted, all-day brows",
+    "tags": "#browpomade #anastasiabeverlyhills #nyxcosmetics #makeupdupes"
+  },
+  {
+    "id": "glow-recipe-dew",
+    "category": "Complexion",
+    "title": "The dewy glow serum",
+    "hook": [
+      "Dewy, glassy skin",
+      "for less"
+    ],
+    "viral": "Glow Recipe Watermelon Glow Niacinamide Dew Drops",
+    "dupe": "essence Hello, Good Stuff! Glow Serum Primer",
+    "blurb": "A glowy serum-primer for that dewy, glass-skin look under or over makeup.",
+    "cta": "Same dewy glow",
+    "tags": "#glowrecipe #dewyskin #essencecosmetics #makeupdupes"
+  },
+  {
+    "id": "roller-lash",
+    "category": "Lashes",
+    "title": "The curling mascara",
+    "hook": [
+      "Curled, lifted lashes",
+      "for less"
+    ],
+    "viral": "Benefit Roller Lash Mascara",
+    "dupe": "CoverGirl Full Lash Bloom Mascara",
+    "blurb": "A curling, lifting mascara for wide-awake, fluttery lashes.",
+    "cta": "Curled and lifted",
+    "tags": "#mascaradupe #benefitcosmetics #covergirl #makeupdupes"
+  },
+  {
+    "id": "warm-wishes",
+    "category": "Complexion",
+    "title": "The cream-powder bronzer",
+    "hook": [
+      "Sun-kissed warmth",
+      "for less"
+    ],
+    "viral": "Rare Beauty Warm Wishes Effortless Bronzer",
+    "dupe": "e.l.f. Putty Bronzer",
+    "blurb": "A soft, blendable bronzer for a natural, sun-kissed warmth.",
+    "cta": "Natural warmth",
+    "tags": "#bronzer #rarebeauty #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "ysl-candy-glaze",
+    "category": "Lips",
+    "title": "The glossy balm stick",
+    "hook": [
+      "Glossy tinted lips",
+      "for less"
+    ],
+    "viral": "YSL Candy Glaze Lip Gloss Stick",
+    "dupe": "rom&nd Glasting Melting Balm",
+    "blurb": "A sheer, glossy balm stick that melts on for juicy, tinted shine.",
+    "cta": "Glassy, juicy shine",
+    "tags": "#ysl #lipbalm #romand #makeupdupes"
+  },
+  {
+    "id": "it-cc-cream",
+    "category": "Complexion",
+    "title": "The CC cream",
+    "hook": [
+      "Full-coverage CC",
+      "for less"
+    ],
+    "viral": "IT Cosmetics CC+ Cream",
+    "dupe": "e.l.f. Camo CC Cream",
+    "blurb": "A colour-correcting cream with real coverage that evens out skin tone in one step.",
+    "cta": "One-step coverage",
+    "tags": "#cccream #itcosmetics #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "pillow-talk-blush",
+    "category": "Cheeks",
+    "title": "The pinky-nude blush",
+    "hook": [
+      "Pillow Talk cheeks",
+      "for less"
+    ],
+    "viral": "Charlotte Tilbury Cheek to Chic in Pillow Talk",
+    "dupe": "Milani Baked Blush in Rosa Romantica",
+    "blurb": "A soft, rosy-nude blush for a natural, healthy flush.",
+    "cta": "Same rosy flush",
+    "tags": "#blush #pillowtalk #milani #makeupdupes"
+  },
+  {
+    "id": "superhero-mascara",
+    "category": "Lashes",
+    "title": "The volumizing mascara",
+    "hook": [
+      "Superhero volume",
+      "for less"
+    ],
+    "viral": "IT Cosmetics Superhero Mascara",
+    "dupe": "essence Lash Princess False Lash Mascara",
+    "blurb": "Big, bold volume and length for a false-lash effect.",
+    "cta": "False-lash volume",
+    "tags": "#mascaradupe #itcosmetics #essencecosmetics #makeupdupes"
+  },
+  {
+    "id": "positive-light",
+    "category": "Complexion",
+    "title": "The liquid highlighter",
+    "hook": [
+      "Liquid glow",
+      "for less"
+    ],
+    "viral": "Rare Beauty Positive Light Liquid Luminizer",
+    "dupe": "e.l.f. Halo Glow Liquid Highlighter",
+    "blurb": "A buildable liquid highlighter for a soft, luminous glow on the high points.",
+    "cta": "Same luminous glow",
+    "tags": "#highlighter #rarebeauty #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "vinyl-stain",
+    "category": "Lips",
+    "title": "The glossy lip stain",
+    "hook": [
+      "High-shine stain",
+      "for less"
+    ],
+    "viral": "YSL Vinyl Cream Lip Stain",
+    "dupe": "e.l.f. Glossy Lip Stain",
+    "blurb": "Glossy colour that stains for long wear with a vinyl-like shine.",
+    "cta": "Glossy, lasting colour",
+    "tags": "#lipstain #ysl #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "nars-soft-matte",
+    "category": "Complexion",
+    "title": "The soft matte foundation",
+    "hook": [
+      "Soft matte skin",
+      "for less"
+    ],
+    "viral": "NARS Soft Matte Complete Foundation",
+    "dupe": "NYX Bare With Me Blur Tint Soft Matte Foundation",
+    "blurb": "Lightweight, blurring coverage with a soft-matte finish that still looks like skin.",
+    "cta": "Blurred, soft matte",
+    "tags": "#foundationdupe #narscosmetics #nyxcosmetics #makeupdupes"
+  },
+  {
+    "id": "one-size-spray",
+    "category": "Complexion",
+    "title": "The setting spray",
+    "hook": [
+      "Locked-in makeup",
+      "for less"
+    ],
+    "viral": "ONE/SIZE On 'Til Dawn Setting Spray",
+    "dupe": "L'Oreal Infallible 3-Second Setting Mist",
+    "blurb": "A fine mist that locks makeup in place so it lasts from morning to night.",
+    "cta": "All-day hold",
+    "tags": "#settingspray #onesize #loreal #makeupdupes"
+  },
+  {
+    "id": "pillow-talk-gloss",
+    "category": "Lips",
+    "title": "The nude lip gloss",
+    "hook": [
+      "Pillow Talk shine",
+      "for less"
+    ],
+    "viral": "Charlotte Tilbury Lip Lustre in Pillow Talk",
+    "dupe": "Wet n Wild MegaSlicks Lip Gloss in Snuggle Sesh",
+    "blurb": "A sheer pinky-nude gloss for glossy, flattering lips.",
+    "cta": "Same pinky-nude shine",
+    "tags": "#lipgloss #pillowtalk #wetnwild #makeupdupes"
+  },
+  {
+    "id": "kosas-revealer",
+    "category": "Complexion",
+    "title": "The serum concealer",
+    "hook": [
+      "Bright, skin-like",
+      "coverage"
+    ],
+    "viral": "Kosas Revealer Concealer",
+    "dupe": "NYX Bare With Me Hydrating Concealer Serum",
+    "blurb": "A creamy, hydrating concealer that brightens and covers without creasing.",
+    "cta": "Bright, hydrated coverage",
+    "tags": "#concealer #kosas #nyxcosmetics #makeupdupes"
+  },
+  {
+    "id": "nars-buttermelt",
+    "category": "Cheeks",
+    "title": "The buttery powder blush",
+    "hook": [
+      "Buttery-soft blush",
+      "for less"
+    ],
+    "viral": "NARS Powder Blush",
+    "dupe": "NYX Buttermelt Blush",
+    "blurb": "A soft, buttery powder blush that blends seamlessly for a natural flush.",
+    "cta": "Buttery and blendable",
+    "tags": "#blush #narscosmetics #nyxcosmetics #makeupdupes"
+  },
+  {
+    "id": "match-stix",
+    "category": "Complexion",
+    "title": "The contour stick",
+    "hook": [
+      "Snatched contour",
+      "for less"
+    ],
+    "viral": "Fenty Beauty Match Stix Contour Skinstick",
+    "dupe": "Makeup Revolution Fast Base Contour Stick",
+    "blurb": "A creamy contour stick that blends out easily for a sculpted, snatched look.",
+    "cta": "Easy, blendable sculpt",
+    "tags": "#contour #fentybeauty #makeuprevolution #makeupdupes"
+  },
+  {
+    "id": "ambient-powder",
+    "category": "Complexion",
+    "title": "The glow finishing powder",
+    "hook": [
+      "Soft, lit-up glow",
+      "for less"
+    ],
+    "viral": "Hourglass Ambient Lighting Powder",
+    "dupe": "Physicians Formula Murumuru Butter Highlighter",
+    "blurb": "A soft, diffused glow that gives skin a flattering, candlelit finish.",
+    "cta": "Soft, diffused glow",
+    "tags": "#highlighter #hourglass #physiciansformula #makeupdupes"
+  },
+  {
+    "id": "double-wear",
+    "category": "Complexion",
+    "title": "The long-wear foundation",
+    "hook": [
+      "All-day coverage",
+      "for less"
+    ],
+    "viral": "Estee Lauder Double Wear Foundation",
+    "dupe": "Revlon ColorStay Makeup",
+    "blurb": "Full-coverage, long-wear foundation that holds up all day.",
+    "cta": "Lasts all day",
+    "tags": "#foundationdupe #esteelauder #revlon #makeupdupes"
+  },
+  {
+    "id": "pillow-talk-intense",
+    "category": "Lips",
+    "title": "The deeper berry-nude lip",
+    "hook": [
+      "Pillow Talk Intense",
+      "for less"
+    ],
+    "viral": "Charlotte Tilbury Pillow Talk Intense Lipstick",
+    "dupe": "Milani Color Fetish Matte Lipstick in Passion",
+    "blurb": "A deeper berry-nude for a richer take on the Pillow Talk look.",
+    "cta": "Same rich berry-nude",
+    "tags": "#pillowtalk #lipstick #milani #makeupdupes"
+  },
+  {
+    "id": "saie-glowy",
+    "category": "Complexion",
+    "title": "The glow gel",
+    "hook": [
+      "Gel-glow skin",
+      "for less"
+    ],
+    "viral": "Saie Glowy Super Gel",
+    "dupe": "CoverGirl TruBlend Skin Enhancer Luminizer",
+    "blurb": "A glowy gel highlighter you wear alone or mixed in for radiant skin.",
+    "cta": "Radiant, glowy skin",
+    "tags": "#glowyskin #saie #covergirl #makeupdupes"
+  },
+  {
+    "id": "rosy-glow",
+    "category": "Cheeks",
+    "title": "The pH blush",
+    "hook": [
+      "Rosy-glow cheeks",
+      "for less"
+    ],
+    "viral": "Dior Backstage Rosy Glow Blush",
+    "dupe": "Revlon Blush in Wild About Violet",
+    "blurb": "A bright pink blush that gives cheeks a fresh, rosy glow.",
+    "cta": "Fresh, rosy glow",
+    "tags": "#blush #dior #revlon #makeupdupes"
+  },
+  {
+    "id": "eaze-drop",
+    "category": "Complexion",
+    "title": "The blurring skin tint",
+    "hook": [
+      "Blurred skin tint",
+      "for less"
+    ],
+    "viral": "Fenty Beauty Eaze Drop Blurring Skin Tint",
+    "dupe": "Milani Glow Hydrating Skin Tint",
+    "blurb": "A lightweight skin tint that blurs and evens tone for an effortless base.",
+    "cta": "Effortless coverage",
+    "tags": "#skintint #fentybeauty #milani #makeupdupes"
+  },
+  {
+    "id": "iced-out",
+    "category": "Complexion",
+    "title": "The holographic highlighter",
+    "hook": [
+      "Iced-out glow",
+      "for less"
+    ],
+    "viral": "Anastasia Beverly Hills Iced Out Highlighter",
+    "dupe": "Maybelline Master Prismatic Highlighting Powder in Opal",
+    "blurb": "A holographic, shifting highlight for an eye-catching glow.",
+    "cta": "Prismatic glow",
+    "tags": "#highlighter #anastasiabeverlyhills #maybelline #makeupdupes"
+  },
+  {
+    "id": "ct-setting-spray",
+    "category": "Complexion",
+    "title": "The flawless setting spray",
+    "hook": [
+      "Flawless all day",
+      "for less"
+    ],
+    "viral": "Charlotte Tilbury Airbrush Flawless Setting Spray",
+    "dupe": "Milani Make It Last Setting Spray",
+    "blurb": "A setting spray that keeps makeup looking fresh and in place all day.",
+    "cta": "Fresh all day",
+    "tags": "#settingspray #charlottetilbury #milani #makeupdupes"
+  },
+  {
+    "id": "pillow-talk-medium",
+    "category": "Lips",
+    "title": "The mid-tone nude lip",
+    "hook": [
+      "Pillow Talk Medium",
+      "for less"
+    ],
+    "viral": "Charlotte Tilbury Pillow Talk Medium Lipstick",
+    "dupe": "Revlon Super Lustrous The Luscious Mattes in Shameless",
+    "blurb": "A warmer, deeper pinky-nude matte for everyday wear.",
+    "cta": "Same everyday nude",
+    "tags": "#pillowtalk #lipstick #revlon #makeupdupes"
   }
 ]
