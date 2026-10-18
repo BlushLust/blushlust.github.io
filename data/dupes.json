@@ -223,5 +223,159 @@
     "cta": "Locked in all night",
     "tags": "#settingspray #urbandecay #elfcosmetics #makeupdupes",
     "posted": "2026-10-28"
+  },
+  {
+    "id": "lip-mask",
+    "category": "Lips",
+    "title": "The overnight lip mask",
+    "hook": [
+      "Soft, plush lips",
+      "by morning"
+    ],
+    "viral": "Laneige Lip Sleeping Mask",
+    "dupe": "e.l.f. Holy Hydration! Lip Mask",
+    "blurb": "Slather it on before bed and wake up to soft, smooth lips. The e.l.f. version is a fan-favourite budget swap.",
+    "cta": "Wake up to soft lips",
+    "tags": "#lipmask #laneige #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "lip-balm",
+    "category": "Lips",
+    "title": "The buttery lip balm",
+    "hook": [
+      "Buttery, glossy",
+      "lips for less"
+    ],
+    "viral": "Summer Fridays Lip Butter Balm",
+    "dupe": "e.l.f. Squeeze Me Lip Balm",
+    "blurb": "A cushiony, glossy balm in a squeeze tube. Beauty shoppers love the e.l.f. one for the same buttery feel.",
+    "cta": "Same buttery feel",
+    "tags": "#lipbalm #summerfridays #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "lip-gloss",
+    "category": "Lips",
+    "title": "The cult lip gloss",
+    "hook": [
+      "High-shine gloss",
+      "without the splurge"
+    ],
+    "viral": "Fenty Beauty Gloss Bomb",
+    "dupe": "NYX Butter Gloss",
+    "blurb": "A non-sticky, high-shine gloss that flatters everyone. NYX Butter Gloss is a long-time drugstore favourite.",
+    "cta": "Non-sticky shine",
+    "tags": "#lipgloss #fentybeauty #nyxcosmetics #makeupdupes"
+  },
+  {
+    "id": "powder-blush",
+    "category": "Cheeks",
+    "title": "The iconic powder blush",
+    "hook": [
+      "That famous",
+      "peachy glow"
+    ],
+    "viral": "NARS Orgasm Blush",
+    "dupe": "Milani Baked Blush in Luminoso",
+    "blurb": "A peachy-pink blush with a soft golden shimmer. Luminoso has been called the go-to dupe for years.",
+    "cta": "Peachy, golden glow",
+    "tags": "#blush #narsblush #milani #makeupdupes"
+  },
+  {
+    "id": "blush-wand",
+    "category": "Cheeks",
+    "title": "The blush wand",
+    "hook": [
+      "Rosy cheeks",
+      "in one swipe"
+    ],
+    "viral": "Charlotte Tilbury Matte Beauty Blush Wand",
+    "dupe": "e.l.f. Halo Glow Blush Beauty Wand",
+    "blurb": "A cushion-tip liquid blush that blends out in seconds for a soft, rosy flush.",
+    "cta": "Rosy in seconds",
+    "tags": "#blushwand #charlottetilbury #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "hydrating-primer",
+    "category": "Complexion",
+    "title": "The hydrating primer",
+    "hook": [
+      "Dewy, prepped",
+      "skin for less"
+    ],
+    "viral": "Too Faced Hangover Primer",
+    "dupe": "e.l.f. Hydrating Face Primer",
+    "blurb": "A lightweight, hydrating primer that gives skin a fresh, dewy base before makeup.",
+    "cta": "Fresh, dewy base",
+    "tags": "#primer #toofaced #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "powder-filter",
+    "category": "Complexion",
+    "title": "The airbrush powder",
+    "hook": [
+      "Airbrushed skin,",
+      "smaller price"
+    ],
+    "viral": "Charlotte Tilbury Airbrush Flawless Finish Powder",
+    "dupe": "e.l.f. Halo Glow Powder Filter",
+    "blurb": "A finely milled pressed powder that softens the look of pores and sets makeup with a blurred finish.",
+    "cta": "Soft-focus finish",
+    "tags": "#settingpowder #charlottetilbury #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "brow-lift",
+    "category": "Brows",
+    "title": "The brow lamination gel",
+    "hook": [
+      "Laminated brows",
+      "for less"
+    ],
+    "viral": "Anastasia Beverly Hills Brow Freeze",
+    "dupe": "e.l.f. Brow Lift",
+    "blurb": "A clear, sculpting wax that brushes brows up and holds them all day for a fluffy, laminated look.",
+    "cta": "Brushed-up, all day",
+    "tags": "#browlamination #anastasiabeverlyhills #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "liquid-liner",
+    "category": "Eyes",
+    "title": "The felt-tip liner",
+    "hook": [
+      "Sharp wings",
+      "without the splurge"
+    ],
+    "viral": "KVD Beauty Tattoo Liner",
+    "dupe": "NYX Epic Ink Liner",
+    "blurb": "A fine brush-tip liquid liner for crisp, inky wings. Epic Ink is one of the best-loved drugstore liners.",
+    "cta": "Crisp, inky wings",
+    "tags": "#eyeliner #wingedliner #nyxcosmetics #makeupdupes"
+  },
+  {
+    "id": "lift-mascara",
+    "category": "Lashes",
+    "title": "The lifting mascara",
+    "hook": [
+      "Lifted, separated",
+      "lashes for less"
+    ],
+    "viral": "Lancome Lash Idole Mascara",
+    "dupe": "L'Oreal Telescopic Lift Mascara",
+    "blurb": "Lifts, lengthens and separates without clumping. The L'Oreal formula is a popular budget pick.",
+    "cta": "Lifted, separated lashes",
+    "tags": "#mascaradupe #lancome #loreal #makeupdupes"
+  },
+  {
+    "id": "radiant-concealer",
+    "category": "Complexion",
+    "title": "The creamy concealer",
+    "hook": [
+      "Bright, creamy",
+      "coverage for less"
+    ],
+    "viral": "NARS Radiant Creamy Concealer",
+    "dupe": "Maybelline Instant Age Rewind Eraser Concealer",
+    "blurb": "A creamy, brightening concealer with a sponge tip. The Maybelline Eraser has been a bestseller for years.",
+    "cta": "Bright, creamy coverage",
+    "tags": "#concealer #narscosmetics #maybelline #makeupdupes"
   }
 ]
