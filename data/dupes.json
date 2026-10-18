@@ -236,7 +236,8 @@
     "dupe": "e.l.f. Holy Hydration! Lip Mask",
     "blurb": "Slather it on before bed and wake up to soft, smooth lips. The e.l.f. version is a fan-favourite budget swap.",
     "cta": "Wake up to soft lips",
-    "tags": "#lipmask #laneige #elfcosmetics #makeupdupes"
+    "tags": "#lipmask #laneige #elfcosmetics #makeupdupes",
+    "posted": "2026-10-18"
   },
   {
     "id": "lip-balm",
@@ -250,7 +251,8 @@
     "dupe": "e.l.f. Squeeze Me Lip Balm",
     "blurb": "A cushiony, glossy balm in a squeeze tube. Beauty shoppers love the e.l.f. one for the same buttery feel.",
     "cta": "Same buttery feel",
-    "tags": "#lipbalm #summerfridays #elfcosmetics #makeupdupes"
+    "tags": "#lipbalm #summerfridays #elfcosmetics #makeupdupes",
+    "posted": "2026-10-25"
   },
   {
     "id": "lip-gloss",
@@ -264,7 +266,8 @@
     "dupe": "NYX Butter Gloss",
     "blurb": "A non-sticky, high-shine gloss that flatters everyone. NYX Butter Gloss is a long-time drugstore favourite.",
     "cta": "Non-sticky shine",
-    "tags": "#lipgloss #fentybeauty #nyxcosmetics #makeupdupes"
+    "tags": "#lipgloss #fentybeauty #nyxcosmetics #makeupdupes",
+    "posted": "2026-10-21"
   },
   {
     "id": "powder-blush",
@@ -278,7 +281,8 @@
     "dupe": "Milani Baked Blush in Luminoso",
     "blurb": "A peachy-pink blush with a soft golden shimmer. Luminoso has been called the go-to dupe for years.",
     "cta": "Peachy, golden glow",
-    "tags": "#blush #narsblush #milani #makeupdupes"
+    "tags": "#blush #narsblush #milani #makeupdupes",
+    "posted": "2026-10-23"
   },
   {
     "id": "blush-wand",
@@ -292,7 +296,8 @@
     "dupe": "e.l.f. Halo Glow Blush Beauty Wand",
     "blurb": "A cushion-tip liquid blush that blends out in seconds for a soft, rosy flush.",
     "cta": "Rosy in seconds",
-    "tags": "#blushwand #charlottetilbury #elfcosmetics #makeupdupes"
+    "tags": "#blushwand #charlottetilbury #elfcosmetics #makeupdupes",
+    "posted": "2026-10-20"
   },
   {
     "id": "hydrating-primer",
@@ -306,7 +311,8 @@
     "dupe": "e.l.f. Hydrating Face Primer",
     "blurb": "A lightweight, hydrating primer that gives skin a fresh, dewy base before makeup.",
     "cta": "Fresh, dewy base",
-    "tags": "#primer #toofaced #elfcosmetics #makeupdupes"
+    "tags": "#primer #toofaced #elfcosmetics #makeupdupes",
+    "posted": "2026-10-27"
   },
   {
     "id": "powder-filter",
@@ -320,7 +326,8 @@
     "dupe": "e.l.f. Halo Glow Powder Filter",
     "blurb": "A finely milled pressed powder that softens the look of pores and sets makeup with a blurred finish.",
     "cta": "Soft-focus finish",
-    "tags": "#settingpowder #charlottetilbury #elfcosmetics #makeupdupes"
+    "tags": "#settingpowder #charlottetilbury #elfcosmetics #makeupdupes",
+    "posted": "2026-10-19"
   },
   {
     "id": "brow-lift",
@@ -334,7 +341,8 @@
     "dupe": "e.l.f. Brow Lift",
     "blurb": "A clear, sculpting wax that brushes brows up and holds them all day for a fluffy, laminated look.",
     "cta": "Brushed-up, all day",
-    "tags": "#browlamination #anastasiabeverlyhills #elfcosmetics #makeupdupes"
+    "tags": "#browlamination #anastasiabeverlyhills #elfcosmetics #makeupdupes",
+    "posted": "2026-10-22"
   },
   {
     "id": "liquid-liner",
@@ -348,7 +356,8 @@
     "dupe": "NYX Epic Ink Liner",
     "blurb": "A fine brush-tip liquid liner for crisp, inky wings. Epic Ink is one of the best-loved drugstore liners.",
     "cta": "Crisp, inky wings",
-    "tags": "#eyeliner #wingedliner #nyxcosmetics #makeupdupes"
+    "tags": "#eyeliner #wingedliner #nyxcosmetics #makeupdupes",
+    "posted": "2026-10-28"
   },
   {
     "id": "lift-mascara",
@@ -362,7 +371,8 @@
     "dupe": "L'Oreal Telescopic Lift Mascara",
     "blurb": "Lifts, lengthens and separates without clumping. The L'Oreal formula is a popular budget pick.",
     "cta": "Lifted, separated lashes",
-    "tags": "#mascaradupe #lancome #loreal #makeupdupes"
+    "tags": "#mascaradupe #lancome #loreal #makeupdupes",
+    "posted": "2026-10-24"
   },
   {
     "id": "radiant-concealer",
@@ -376,6 +386,172 @@
     "dupe": "Maybelline Instant Age Rewind Eraser Concealer",
     "blurb": "A creamy, brightening concealer with a sponge tip. The Maybelline Eraser has been a bestseller for years.",
     "cta": "Bright, creamy coverage",
-    "tags": "#concealer #narscosmetics #maybelline #makeupdupes"
+    "tags": "#concealer #narscosmetics #maybelline #makeupdupes",
+    "posted": "2026-10-26"
+  },
+  {
+    "id": "cloud-paint",
+    "category": "Cheeks",
+    "title": "The gel-cream blush",
+    "hook": [
+      "Dewy, cloud-soft",
+      "cheeks for less"
+    ],
+    "viral": "Glossier Cloud Paint",
+    "dupe": "Maybelline Cheek Heat Gel-Cream Blush",
+    "blurb": "A sheer, buildable gel-cream blush you tap on with your fingers for a natural, lit-from-within flush.",
+    "cta": "Same dewy flush",
+    "tags": "#blushdupe #glossier #maybelline #makeupdupes",
+    "posted": "2026-10-18"
+  },
+  {
+    "id": "pillow-talk",
+    "category": "Lips",
+    "title": "The everyday nude lip",
+    "hook": [
+      "The nude-pink",
+      "lip for less"
+    ],
+    "viral": "Charlotte Tilbury Pillow Talk Lipstick",
+    "dupe": "NYX Lip Lingerie XXL in Stripped",
+    "blurb": "That universally flattering pinky-nude everyone reaches for. The NYX shade Stripped is a go-to swap.",
+    "cta": "Same pinky-nude",
+    "tags": "#pillowtalk #lipstickdupe #nyxcosmetics #makeupdupes",
+    "posted": "2026-10-19"
+  },
+  {
+    "id": "eyeliner-pencil",
+    "category": "Eyes",
+    "title": "The waterproof eye pencil",
+    "hook": [
+      "Smudge-proof liner",
+      "for less"
+    ],
+    "viral": "Urban Decay 24/7 Glide-On Eye Pencil",
+    "dupe": "essence Extreme Lasting Waterproof Eye Pencil",
+    "blurb": "A creamy pencil that glides on, sets, and stays put all day. Great for the waterline or a smoky smudge.",
+    "cta": "Glides on, stays put",
+    "tags": "#eyelinerdupe #urbandecay #essencecosmetics #makeupdupes",
+    "posted": "2026-10-20"
+  },
+  {
+    "id": "skin-tint",
+    "category": "Complexion",
+    "title": "The airbrushed base",
+    "hook": [
+      "Airbrushed skin",
+      "for less"
+    ],
+    "viral": "Charlotte Tilbury Airbrush Flawless Foundation",
+    "dupe": "Maybelline SuperStay Skin Tint",
+    "blurb": "Long-wearing, skin-like coverage that evens tone without looking heavy. A favourite budget swap for a flawless base.",
+    "cta": "Skin-like coverage",
+    "tags": "#foundationdupe #charlottetilbury #maybelline #makeupdupes",
+    "posted": "2026-10-21"
+  },
+  {
+    "id": "ruby-woo",
+    "category": "Lips",
+    "title": "The iconic red lip",
+    "hook": [
+      "The classic red",
+      "for less"
+    ],
+    "viral": "MAC Ruby Woo Lipstick",
+    "dupe": "Wet n Wild MegaLast Lip Color in Stoplight Red",
+    "blurb": "A bold, blue-toned matte red. Stoplight Red is the long-time drugstore pick for the same iconic look.",
+    "cta": "Same bold red",
+    "tags": "#rubywoo #redlipstick #wetnwild #makeupdupes",
+    "posted": "2026-10-22"
+  },
+  {
+    "id": "glow-drops",
+    "category": "Complexion",
+    "title": "The glow primer",
+    "hook": [
+      "Glass-skin glow",
+      "for less"
+    ],
+    "viral": "Charlotte Tilbury Wonderglow Primer",
+    "dupe": "Catrice Pretty Glow Drops",
+    "blurb": "A luminous base that gives skin a soft, healthy sheen under or over makeup.",
+    "cta": "Healthy, dewy sheen",
+    "tags": "#glowyskin #charlottetilbury #catrice #makeupdupes",
+    "posted": "2026-10-23"
+  },
+  {
+    "id": "black-honey",
+    "category": "Lips",
+    "title": "The sheer berry lip",
+    "hook": [
+      "That cult berry",
+      "lip for less"
+    ],
+    "viral": "Clinique Almost Lipstick in Black Honey",
+    "dupe": "e.l.f. Hydrating Core Lip Shine in Ecstatic",
+    "blurb": "A sheer, buildable berry that suits almost everyone. The e.l.f. shade Ecstatic gives the same easy wash of colour.",
+    "cta": "Same sheer berry",
+    "tags": "#blackhoney #cliniquedupe #elfcosmetics #makeupdupes",
+    "posted": "2026-10-24"
+  },
+  {
+    "id": "cream-powder",
+    "category": "Complexion",
+    "title": "The cream-to-powder foundation",
+    "hook": [
+      "Full coverage,",
+      "smooth finish"
+    ],
+    "viral": "KVD Beauty Good Apple Foundation",
+    "dupe": "Milani Conceal + Perfect Smooth Finish Cream to Powder",
+    "blurb": "A creamy, full-coverage foundation that sets to a smooth, soft-matte finish.",
+    "cta": "Cream that sets to powder",
+    "tags": "#foundationdupe #kvdbeauty #milanicosmetics #makeupdupes",
+    "posted": "2026-10-25"
+  },
+  {
+    "id": "eyeshadow-palette",
+    "category": "Eyes",
+    "title": "The warm nude palette",
+    "hook": [
+      "Everyday eyeshadow",
+      "for less"
+    ],
+    "viral": "Tarte Tartelette In Bloom Palette",
+    "dupe": "Catrice Basic Bae Eyeshadow Palette",
+    "blurb": "Wearable neutral and warm shades for everyday looks, from soft matte to a little shimmer.",
+    "cta": "Everyday neutrals",
+    "tags": "#eyeshadowpalette #tarte #catrice #makeupdupes",
+    "posted": "2026-10-26"
+  },
+  {
+    "id": "lip-plumper",
+    "category": "Lips",
+    "title": "The lip plumper",
+    "hook": [
+      "Fuller-looking lips",
+      "for less"
+    ],
+    "viral": "Too Faced Lip Injection Extreme",
+    "dupe": "Maybelline Lifter Plump Lip Plumping Gloss",
+    "blurb": "A tingly plumping gloss for fuller-looking, glossy lips.",
+    "cta": "Same plumping tingle",
+    "tags": "#lipplumper #toofaced #maybelline #makeupdupes",
+    "posted": "2026-10-27"
+  },
+  {
+    "id": "brow-definer",
+    "category": "Brows",
+    "title": "The precise brow pencil",
+    "hook": [
+      "Defined brows",
+      "for less"
+    ],
+    "viral": "Benefit Precisely, My Brow Pencil",
+    "dupe": "L'Oreal Brow Stylist Definer",
+    "blurb": "An ultra-fine pencil for crisp, natural-looking strokes. A fan-favourite drugstore swap.",
+    "cta": "Crisp, natural strokes",
+    "tags": "#browpencil #benefitcosmetics #loreal #makeupdupes",
+    "posted": "2026-10-28"
   }
 ]
