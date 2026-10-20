@@ -18,7 +18,7 @@ img{max-width:100%;display:block}
 .brand span{display:flex;flex-direction:column;line-height:1.05}
 .brand b{font-family:"Montserrat","Inter",sans-serif;font-weight:800;font-size:1.2rem;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
 .brand small{font-family:"Montserrat","Inter",sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-top:3px}
-.site-head nav a{color:var(--plum);margin-left:18px;text-decoration:none;font-weight:600;font-size:.95rem}
+.site-head nav a{white-space:nowrap;color:var(--plum);margin-left:18px;text-decoration:none;font-weight:600;font-size:.95rem}
 
 /* hero */
 .hero{text-align:center;padding:48px 0 40px}
