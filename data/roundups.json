@@ -30,5 +30,99 @@
       "Concealer"
     ],
     "max_price": 15
+  },
+  {
+    "id": "dupes-under-10",
+    "eyebrow": "Under $10",
+    "kicker": "UNDER $10",
+    "hook": [
+      "Viral dupes",
+      "under $10"
+    ],
+    "title": "8 Viral Makeup Dupes Under $10 on Amazon.ca",
+    "intro": "The cheapest swaps for cult-favourite makeup: every pick here was under $10 on Amazon.ca when we last checked.",
+    "items": [
+      "ruby-woo",
+      "pillow-talk-gloss",
+      "milk-lip-cheek",
+      "setting-spray",
+      "rhode-pocket",
+      "cloud-paint",
+      "eyeliner-pencil",
+      "hourglass-veil"
+    ],
+    "labels": [
+      "Matte red lipstick",
+      "Nude lip gloss",
+      "Lip & cheek stick",
+      "Setting spray",
+      "Cream blush stick",
+      "Gel-cream blush",
+      "Eye pencil",
+      "Setting powder"
+    ],
+    "max_price": 10
+  },
+  {
+    "id": "glow-edit",
+    "eyebrow": "The Glow Edit",
+    "kicker": "THE GLOW EDIT",
+    "hook": [
+      "Glass-skin glow",
+      "for less"
+    ],
+    "title": "The Glow Edit: 8 Drugstore Dupes for Lit-From-Within Skin",
+    "intro": "Filters, highlighters and glow primers that get you the viral glowy-skin look for a fraction of the luxury price.",
+    "items": [
+      "filter-glow",
+      "highlight-wand",
+      "bronzing-drops",
+      "glow-drops",
+      "positive-light",
+      "powder-filter",
+      "iced-out",
+      "glow-recipe-dew"
+    ],
+    "labels": [
+      "Glow filter",
+      "Highlight wand",
+      "Bronzing drops",
+      "Glow primer",
+      "Liquid highlighter",
+      "Powder filter",
+      "Chrome highlighter",
+      "Glow serum primer"
+    ]
+  },
+  {
+    "id": "lip-edit",
+    "eyebrow": "The Lip Edit",
+    "kicker": "THE LIP EDIT",
+    "hook": [
+      "Viral lip dupes",
+      "for less"
+    ],
+    "title": "The Lip Edit: 8 Viral Lip Dupes from the Drugstore",
+    "intro": "Lip oils, glosses, tints and the perfect nude, all drugstore swaps for the lip products everyone keeps talking about.",
+    "items": [
+      "lip-oil",
+      "lip-gloss",
+      "pillow-talk",
+      "ruby-woo",
+      "black-honey",
+      "lip-plumper",
+      "vinyl-stain",
+      "rhode-lip-tint"
+    ],
+    "labels": [
+      "Lip oil",
+      "Butter gloss",
+      "Pinky-nude lipstick",
+      "Matte red",
+      "Sheer berry balm",
+      "Plumping gloss",
+      "Glossy lip stain",
+      "Peptide lip tint"
+    ]
   }
 ]
