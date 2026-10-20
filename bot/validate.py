@@ -70,7 +70,7 @@ def main():
             elif cap:
                 warnings.append(f"roundups.json: no logged price yet for '{x}' in '{r['id']}'")
 
-    pages = [ROOT / "index.html", *sorted((ROOT / "posts").glob("*.html"))]
+    pages = [ROOT / "index.html", ROOT / "dupe-finder.html", *sorted((ROOT / "posts").glob("*.html"))]
     total = direct = 0
     for p in pages:
         parser = Links()

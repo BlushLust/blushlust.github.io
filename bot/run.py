@@ -210,7 +210,7 @@ def page(title, desc, body, root="", og_image=None):
 <body>
 <header class="site-head"><div class="wrap">
 <a class="brand" href="{root}index.html"><img src="{root}assets/mark.png" alt="Blush Lust logo"><span><b>Blush Lust</b><small>Gourmet Beauty</small></span></a>
-<nav><a href="{root}index.html">Dupes</a><a href="{root}about.html">About</a></nav>
+<nav><a href="{root}index.html">Dupes</a><a href="{root}dupe-finder.html">Dupe finder</a><a href="{root}about.html">About</a></nav>
 </div></header>
 <main class="wrap">{body}</main>
 <footer><div class="wrap">&copy; {dt.date.today().year} Blush Lust &middot; Gourmet beauty &middot; Viral makeup looks for less.<br>{DISC} Prices and availability change often &mdash; always check the retailer for current details.<br><a href="{root}privacy.html">Privacy</a></div></footer>
@@ -280,6 +280,48 @@ def write_roundups(items, rerender=False):
             encoding="utf-8")
 
 
+def write_finder(items):
+    """Searchable 'viral product -> drugstore dupe' finder (dupe-finder.html)."""
+    posted = sorted([i for i in items if i.get("posted")], key=lambda i: i["viral"].lower())
+    cats = sorted({i["category"] for i in posted})
+    chips = '<button class="chip on" data-cat="">All</button>' + "".join(
+        f'<button class="chip" data-cat="{html.escape(c)}">{html.escape(c)}</button>' for c in cats)
+    cards = "".join(
+        f'<div class="fcard" data-cat="{html.escape(i["category"])}" '
+        f'data-q="{html.escape((i["viral"] + " " + i["dupe"] + " " + i["category"] + " " + i["title"]).lower())}">'
+        f'<span class="tag">{html.escape(i["category"])}</span>'
+        f'<p class="fv">{html.escape(i["viral"])}</p><p class="fa">&darr; dupe</p>'
+        f'<h2>{html.escape(i["dupe"])}</h2>'
+        f'<a class="btn" href="{amazon(i)}" rel="sponsored nofollow noopener" target="_blank">Shop on Amazon.ca</a> '
+        f'<a class="more" href="posts/{i["id"]}.html">Compare &rarr;</a></div>'
+        for i in posted)
+    body = ('<section class="hero"><h1>Dupe <em>finder</em></h1>'
+            '<p>Type a viral product or brand (Charlotte Tilbury, Rare Beauty, Dior...) to find its drugstore dupe.</p>'
+            '<input id="q" type="search" placeholder="Search e.g. Pillow Talk, blush, Fenty" autocomplete="off" '
+            'style="width:100%;max-width:520px;margin-top:18px;padding:14px 18px;border-radius:999px;border:1px solid var(--line);font:inherit">'
+            f'<div class="chips">{chips}</div><p id="count" class="lede" style="font-size:.95rem"></p></section>'
+            f'<p class="disclose">This page contains affiliate links. {DISC}</p>'
+            f'<section class="grid" id="list">{cards}</section>'
+            '<style>.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}'
+            '.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font:600 .85rem Inter,sans-serif;color:var(--plum);cursor:pointer}'
+            '.chip.on{background:var(--plum);color:#fff;border-color:var(--plum)}'
+            '.fcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}'
+            '.fcard .tag{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blush-deep);font-weight:700}'
+            '.fcard .fv{margin:8px 0 0;color:var(--ink-soft);font-size:.92rem}.fcard .fa{margin:2px 0;color:var(--red);font-size:.8rem}'
+            '.fcard h2{font-family:"Playfair Display",Georgia,serif;font-size:1.2rem;margin:0 0 10px;color:var(--ink)}'
+            '.fcard .more{font-size:.9rem;margin-left:8px}</style>'
+            '<script>(function(){var q=document.getElementById("q"),cards=[].slice.call(document.querySelectorAll(".fcard")),'
+            'chips=[].slice.call(document.querySelectorAll(".chip")),cat="",n=document.getElementById("count");'
+            'function f(){var t=q.value.toLowerCase().trim(),c=0;cards.forEach(function(e){var ok=(!cat||e.dataset.cat===cat)&&'
+            '(!t||t.split(/\\s+/).every(function(w){return e.dataset.q.indexOf(w)>-1}));e.style.display=ok?"":"none";if(ok)c++});'
+            'n.textContent=c+" dupe"+(c===1?"":"s")}chips.forEach(function(b){b.onclick=function(){chips.forEach(function(x){x.classList.remove("on")});'
+            'b.classList.add("on");cat=b.dataset.cat;f()}});q.oninput=f;var p=new URLSearchParams(location.search).get("q");if(p)q.value=p;f()})();</script>')
+    (ROOT / "dupe-finder.html").write_text(
+        page("Makeup Dupe Finder — Drugstore Dupes for Viral Makeup | Blush Lust",
+             f"Search {len(posted)} drugstore dupes for viral luxury makeup from Charlotte Tilbury, Rare Beauty, Dior, Fenty and more.", body),
+        encoding="utf-8")
+
+
 def write_index(items):
     posted = sorted([i for i in items if i.get("posted")], key=lambda i: i["posted"], reverse=True)
     cards = [f'<a class="card" href="posts/{r["id"]}.html"><span class="tag">{html.escape(r["eyebrow"])}</span>'
@@ -301,7 +343,7 @@ def write_index(items):
 def write_sitemap(items):
     """sitemap.xml + robots.txt so search engines (and Pinterest) find every post."""
     today = dt.date.today().isoformat()
-    urls = [("", today), ("about.html", None), ("posts/viral-makeup-dupes.html", None)]
+    urls = [("", today), ("dupe-finder.html", today), ("about.html", None), ("posts/viral-makeup-dupes.html", None)]
     urls += [(f"posts/{r['id']}.html", today) for r in load_roundups()]
     urls += [(f"posts/{i['id']}.html", min(i["posted"], today)) for i in items if i.get("posted")]
     body = "".join(f"<url><loc>{SITE}/{u}</loc>" + (f"<lastmod>{m}</lastmod>" if m else "") + "</url>\n"
@@ -396,6 +438,7 @@ def main():
                 print(f"Created {nxt['id']} (no Pinterest secrets yet - added to data/pins-to-post.csv)")
 
     write_roundups(items, rerender)
+    write_finder(items)
     write_index(items)
     write_sitemap(items)
     DATA.write_text(json.dumps(items, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
