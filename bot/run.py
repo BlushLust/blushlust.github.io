@@ -156,6 +156,44 @@ def render_pin(item, out):
     im.resize((W, H), Image.LANCZOS).save(out)
 
 
+def render_pin_v2(item, out):
+    """Fresh-design variant (dark plum, price-led hook) so the same dupe can be re-pinned as new content."""
+    im = Image.new("RGB", (W * K, H * K))
+    d = ImageDraw.Draw(im)
+    top, bot = (60, 12, 38), (24, 60, 72)
+    for y in range(H * K):
+        t = y / (H * K)
+        d.line([(0, y), (W * K, y)], fill=tuple(int(top[i] + (bot[i] - top[i]) * t) for i in range(3)))
+    white, blush = (255, 255, 255), (246, 196, 214)
+    _ctext(d, "SKIP THE SPLURGE", font("LiberationSans-Bold.ttf", 36), 190, blush)
+    y = 290
+    hook = item.get("hook2") or [item["title"][0].upper() + item["title"][1:], "for way less"]
+    size = 100
+    while size > 64 and max(d.textbbox((0, 0), ln, font=font("LiberationSerif-BoldItalic.ttf", size))[2]
+                            for ln in hook) > 880 * K:
+        size -= 4
+    for ln in hook:
+        y += _ctext(d, ln, font("LiberationSerif-BoldItalic.ttf", size), y, white) + 18
+    y += 120
+    f_lab, f_name = font("LiberationSans-Bold.ttf", 30), font("LiberationSerif-Bold.ttf", 54)
+    for label, name in (("INSTEAD OF", item["viral"]), ("GET", item["dupe"])):
+        _ctext(d, label, f_lab, y, blush)
+        y += 58
+        for ln in _wrap(d, name, f_name, 840)[:2]:
+            y += _ctext(d, ln, f_name, y, white) + 16
+        y += 90
+    _ctext(d, "Find it on Amazon.ca \u2192", font("LiberationSans-Bold.ttf", 42), y + 30, blush)
+    if MARK.exists():
+        m = Image.open(MARK).convert("RGBA").resize((140 * K, 140 * K), Image.LANCZOS)
+        bg = Image.new("RGBA", m.size, (255, 255, 255, 0))
+        ImageDraw.Draw(bg).ellipse((0, 0, m.width - 1, m.height - 1), fill=(255, 255, 255, 235))
+        bg.alpha_composite(m)
+        im.paste(bg, ((W * K - m.width) // 2, 1215 * K), bg)
+    _ctext(d, "B L U S H   L U S T", font("LiberationSans-Bold.ttf", 34), 1372, white)
+    _ctext(d, "blushlust.github.io", font("LiberationSans-Regular.ttf", 24), 1420, blush)
+    im.resize((W, H), Image.LANCZOS).save(out)
+
+
 # ---------------------------------------------------------------- web pages
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
@@ -208,10 +246,46 @@ def write_post(item):
              og_image=f"assets/pins/{item['id']}.png"), encoding="utf-8")
 
 
+ROUNDUPS = ROOT / "data" / "roundups.json"
+
+
+def load_roundups():
+    return json.loads(ROUNDUPS.read_text(encoding="utf-8")) if ROUNDUPS.exists() else []
+
+
+def write_roundups(items, rerender=False):
+    """Gift guides / themed edits built from dupes in dupes.json (data/roundups.json)."""
+    by_id = {i["id"]: i for i in items}
+    for r in load_roundups():
+        picks = [by_id[x] for x in r["items"]]
+        img = ROOT / "assets" / "pins" / f"{r['id']}.png"
+        if rerender or not img.exists():
+            render_roundup(r["kicker"], r["hook"], (r.get("labels") or [i["category"] for i in picks])[:8], img)
+        rows = "".join(
+            f'<section class="dupe"><span class="eyebrow">{n}. {html.escape(i["category"])}</span>'
+            f'<h2>{html.escape(i["dupe"])}</h2>'
+            f'<div class="vs"><div><b>The viral pick</b>{html.escape(i["viral"])}</div><div class="arrow">vs.</div>'
+            f'<div><b>The dupe</b>{html.escape(i["dupe"])}</div></div>'
+            f'<p>{html.escape(i["blurb"])}</p>'
+            f'<a class="btn" href="{amazon(i)}" rel="sponsored nofollow noopener" target="_blank">Shop the dupe on Amazon.ca &rarr;</a>'
+            f'<p style="font-size:.9rem"><a href="{i["id"]}.html">Full comparison &rarr;</a></p></section>'
+            for n, i in enumerate(picks, 1))
+        body = (f'<article><span class="eyebrow">{html.escape(r["eyebrow"])}</span><h1>{html.escape(r["title"])}</h1>'
+                f'<p class="lede">{html.escape(r["intro"])}</p>'
+                f'<p class="disclose">This post contains affiliate links. If you buy through them, we may earn a small commission at no extra cost to you. {DISC}</p>'
+                f'{rows}<img src="../assets/pins/{r["id"]}.png" alt="{html.escape(r["title"])}" style="max-width:420px;margin:32px auto;border-radius:18px">'
+                '<p style="font-size:.9rem;color:var(--ink-soft)">Prices change often &mdash; check Amazon.ca for the current price.</p></article>')
+        (ROOT / "posts" / f"{r['id']}.html").write_text(
+            page(r["title"] + " — Blush Lust", r["intro"], body, root="../", og_image=f"assets/pins/{r['id']}.png"),
+            encoding="utf-8")
+
+
 def write_index(items):
     posted = sorted([i for i in items if i.get("posted")], key=lambda i: i["posted"], reverse=True)
-    cards = ['<a class="card" href="posts/viral-makeup-dupes.html"><span class="tag">Dupe Edit</span>'
-             '<h2>6 Viral Makeup Dupes Worth the Hype</h2><p>The drugstore swaps beauty lovers keep comparing to the cult favourites.</p></a>']
+    cards = [f'<a class="card" href="posts/{r["id"]}.html"><span class="tag">{html.escape(r["eyebrow"])}</span>'
+             f'<h2>{html.escape(r["title"])}</h2><p>{html.escape(r["intro"])}</p></a>' for r in load_roundups()]
+    cards += ['<a class="card" href="posts/viral-makeup-dupes.html"><span class="tag">Dupe Edit</span>'
+              '<h2>6 Viral Makeup Dupes Worth the Hype</h2><p>The drugstore swaps beauty lovers keep comparing to the cult favourites.</p></a>']
     for i in posted:
         cards.append(f'<a class="card" href="posts/{i["id"]}.html"><span class="tag">{html.escape(i["category"])}</span>'
                      f'<h2>{html.escape(i["viral"])} dupe</h2><p>{html.escape(i["dupe"])}</p></a>')
@@ -228,6 +302,7 @@ def write_sitemap(items):
     """sitemap.xml + robots.txt so search engines (and Pinterest) find every post."""
     today = dt.date.today().isoformat()
     urls = [("", today), ("about.html", None), ("posts/viral-makeup-dupes.html", None)]
+    urls += [(f"posts/{r['id']}.html", today) for r in load_roundups()]
     urls += [(f"posts/{i['id']}.html", min(i["posted"], today)) for i in items if i.get("posted")]
     body = "".join(f"<url><loc>{SITE}/{u}</loc>" + (f"<lastmod>{m}</lastmod>" if m else "") + "</url>\n"
                    for u, m in urls)
@@ -320,6 +395,7 @@ def main():
                 queue_manual(nxt)
                 print(f"Created {nxt['id']} (no Pinterest secrets yet - added to data/pins-to-post.csv)")
 
+    write_roundups(items, rerender)
     write_index(items)
     write_sitemap(items)
     DATA.write_text(json.dumps(items, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

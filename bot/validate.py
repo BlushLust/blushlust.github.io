@@ -47,6 +47,29 @@ def main():
             else:
                 errors.append(f"dupes.json: queued dupe '{i['id']}' ({i['dupe']}) has no ASIN")
 
+    # Roundups (gift guides): every item must exist, have an ASIN, and respect the roundup's price cap
+    # using the latest price logged by the daily check in data/prices.csv.
+    latest = {}
+    prices_csv = ROOT / "data" / "prices.csv"
+    if prices_csv.exists():
+        import csv
+        for row in csv.DictReader(prices_csv.open(encoding="utf-8")):
+            latest[row["id"]] = row
+    rpath = ROOT / "data" / "roundups.json"
+    for r in (json.loads(rpath.read_text(encoding="utf-8")) if rpath.exists() else []):
+        for x in r["items"]:
+            if x not in by_id or not by_id[x].get("asin"):
+                errors.append(f"roundups.json: '{r['id']}' item '{x}' missing or has no ASIN")
+                continue
+            cap, row = r.get("max_price"), latest.get(x)
+            if cap and row:
+                if row["in_stock"] != "1" or not row["price_cad"]:
+                    errors.append(f"roundups.json: '{r['id']}' item '{x}' is out of stock on Amazon.ca")
+                elif float(row["price_cad"]) > cap:
+                    errors.append(f"roundups.json: '{r['id']}' item '{x}' is ${row['price_cad']}, over the ${cap} cap")
+            elif cap:
+                warnings.append(f"roundups.json: no logged price yet for '{x}' in '{r['id']}'")
+
     pages = [ROOT / "index.html", *sorted((ROOT / "posts").glob("*.html"))]
     total = direct = 0
     for p in pages:
