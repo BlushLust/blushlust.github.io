@@ -1,0 +1,34 @@
+[
+  {
+    "id": "stocking-stuffers-under-15",
+    "eyebrow": "Gift Guide",
+    "kicker": "GIFT GUIDE",
+    "hook": [
+      "Stocking stuffers",
+      "under $15"
+    ],
+    "title": "8 Viral Makeup Dupes Under $15 (Stocking Stuffer Edit)",
+    "intro": "Cult-favourite looks at drugstore prices: easy stocking stuffers for the beauty lover on your list, all on Amazon.ca.",
+    "items": [
+      "lip-oil",
+      "liquid-blush",
+      "lip-balm",
+      "lip-mask",
+      "brow-lift",
+      "brow-gel",
+      "warm-wishes",
+      "concealer"
+    ],
+    "labels": [
+      "Lip oil",
+      "Liquid blush",
+      "Lip balm",
+      "Overnight lip mask",
+      "Brow wax",
+      "Brow gel",
+      "Putty bronzer",
+      "Concealer"
+    ],
+    "max_price": 15
+  }
+]
