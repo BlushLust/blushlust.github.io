@@ -224,6 +224,19 @@ def write_index(items):
              "Drugstore dupes for the viral makeup everyone is obsessed with.", body), encoding="utf-8")
 
 
+def write_sitemap(items):
+    """sitemap.xml + robots.txt so search engines (and Pinterest) find every post."""
+    today = dt.date.today().isoformat()
+    urls = [("", today), ("about.html", None), ("posts/viral-makeup-dupes.html", None)]
+    urls += [(f"posts/{i['id']}.html", min(i["posted"], today)) for i in items if i.get("posted")]
+    body = "".join(f"<url><loc>{SITE}/{u}</loc>" + (f"<lastmod>{m}</lastmod>" if m else "") + "</url>\n"
+                   for u, m in urls)
+    (ROOT / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n'
+                                      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+                                      f"{body}</urlset>\n", encoding="utf-8")
+    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
+
+
 # ---------------------------------------------------------------- pinterest
 def pinterest_post(item):
     """Returns the new pin id, or None if API secrets are not configured."""
@@ -308,6 +321,7 @@ def main():
                 print(f"Created {nxt['id']} (no Pinterest secrets yet - added to data/pins-to-post.csv)")
 
     write_index(items)
+    write_sitemap(items)
     DATA.write_text(json.dumps(items, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     left = sum(1 for i in items if not i.get("posted"))
     print(f"{left} dupes left in the queue")
