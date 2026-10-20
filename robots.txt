@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://blushlust.github.io/sitemap.xml
