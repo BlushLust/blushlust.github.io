@@ -179,8 +179,11 @@ def page(title, desc, body, root="", og_image=None):
 </body></html>'''
 
 
-def amazon(q):
-    return f"https://www.amazon.ca/s?k={quote_plus(q)}&tag={TAG}"
+def amazon(item):
+    """Direct product link when the dupe has an ASIN; search link only as a fallback."""
+    if item.get("asin"):
+        return f"https://www.amazon.ca/dp/{item['asin']}?tag={TAG}"
+    return f"https://www.amazon.ca/s?k={quote_plus(item['dupe'])}&tag={TAG}"
 
 
 def post_title(item):
@@ -195,7 +198,7 @@ def write_post(item):
 <p class="disclose">This post contains affiliate links. If you buy through them, we may earn a small commission at no extra cost to you. {DISC}</p>
 <section class="dupe"><h2>{html.escape(item["dupe"])}</h2>
 <div class="vs"><div><b>The viral pick</b>{html.escape(item["viral"])}</div><div class="arrow">vs.</div><div><b>The dupe</b>{html.escape(item["dupe"])}</div></div>
-<a class="btn" href="{amazon(item["dupe"])}" rel="sponsored nofollow noopener" target="_blank">Find the dupe on Amazon.ca &rarr;</a></section>
+<a class="btn" href="{amazon(item)}" rel="sponsored nofollow noopener" target="_blank">{"Shop" if item.get("asin") else "Find"} the dupe on Amazon.ca &rarr;</a></section>
 <img src="../assets/pins/{item["id"]}.png" alt="{html.escape(post_title(item))}" style="max-width:420px;margin:32px auto;border-radius:18px">
 <p style="font-size:.9rem;color:var(--ink-soft)">Comparisons reflect what beauty shoppers commonly say, not lab testing. Shades and formulas vary &mdash; check reviews before you buy.</p>
 <p><a href="viral-makeup-dupes.html">See all 6 viral makeup dupes &rarr;</a></p>
@@ -289,6 +292,9 @@ def main():
         nxt = next((i for i in items if not i.get("posted")), None)
         if not nxt:
             print("Queue empty - add more dupes to data/dupes.json")
+        elif not nxt.get("asin"):
+            raise SystemExit(f"'{nxt['id']}' has no Amazon ASIN - add \"asin\" to data/dupes.json "
+                             "so the pin links to the product page, not a search page")
         else:
             render_pin(nxt, ROOT / "assets" / "pins" / f"{nxt['id']}.png")
             write_post(nxt)
