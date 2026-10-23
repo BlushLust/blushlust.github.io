@@ -228,7 +228,24 @@ def post_title(item):
     return f"{item['viral']} Dupe: {item['dupe']}"
 
 
-def write_post(item):
+def _related(item, items, n=3):
+    """Same-category dupes (internal links) to keep shoppers browsing."""
+    same = [i for i in items if i["id"] != item["id"] and i["category"] == item["category"]]
+    start = sum(ord(c) for c in item["id"]) % max(len(same), 1)
+    return (same[start:] + same[:start])[:n]
+
+
+def write_post(item, items=(), roundups=()):
+    link = amazon(item)
+    rel = _related(item, items)
+    rel_html = ""
+    if rel:
+        cards = "".join(
+            f'<li><a href="{i["id"]}.html"><b>{html.escape(i["viral"])}</b> dupe: {html.escape(i["dupe"])} &rarr;</a></li>'
+            for i in rel)
+        rel_html = f'<section class="dupe"><h2>More {html.escape(item["category"].lower())} dupes</h2><ul>{cards}</ul></section>'
+    guides = [r for r in roundups if item["id"] in r["items"]]
+    guide_html = "".join(f'<p><a href="{r["id"]}.html">Featured in: {html.escape(r["title"])} &rarr;</a></p>' for r in guides)
     body = f'''
 <article><span class="eyebrow">Dupe Alert &middot; {html.escape(item["category"])}</span>
 <h1>{html.escape(item["title"][0].upper() + item["title"][1:])}, for less</h1>
@@ -236,10 +253,12 @@ def write_post(item):
 <p class="disclose">This post contains affiliate links. If you buy through them, we may earn a small commission at no extra cost to you. {DISC}</p>
 <section class="dupe"><h2>{html.escape(item["dupe"])}</h2>
 <div class="vs"><div><b>The viral pick</b>{html.escape(item["viral"])}</div><div class="arrow">vs.</div><div><b>The dupe</b>{html.escape(item["dupe"])}</div></div>
-<a class="btn" href="{amazon(item)}" rel="sponsored nofollow noopener" target="_blank">{"Shop" if item.get("asin") else "Find"} the dupe on Amazon.ca &rarr;</a></section>
-<img src="../assets/pins/{item["id"]}.png" alt="{html.escape(post_title(item))}" style="max-width:420px;margin:32px auto;border-radius:18px">
+<a class="btn" href="{link}" rel="sponsored nofollow noopener" target="_blank">{"Shop" if item.get("asin") else "Find"} the dupe on Amazon.ca &rarr;</a></section>
+<a href="{link}" rel="sponsored nofollow noopener" target="_blank"><img src="../assets/pins/{item["id"]}.png" alt="{html.escape(post_title(item))}" style="max-width:420px;margin:32px auto;border-radius:18px"></a>
+<p style="text-align:center"><a class="btn" href="{link}" rel="sponsored nofollow noopener" target="_blank">See today&rsquo;s price on Amazon.ca &rarr;</a></p>
 <p style="font-size:.9rem;color:var(--ink-soft)">Comparisons reflect what beauty shoppers commonly say, not lab testing. Shades and formulas vary &mdash; check reviews before you buy.</p>
-<p><a href="viral-makeup-dupes.html">See all 6 viral makeup dupes &rarr;</a></p>
+{rel_html}{guide_html}
+<p><a href="../dupe-finder.html">Search every viral dupe &rarr;</a></p>
 </article>'''
     (ROOT / "posts" / f"{item['id']}.html").write_text(
         page(post_title(item) + " — Blush Lust", item["blurb"], body, root="../",
@@ -416,7 +435,7 @@ def main():
         if i.get("posted"):
             if rerender or not (ROOT / "assets" / "pins" / f"{i['id']}.png").exists():
                 render_pin(i, ROOT / "assets" / "pins" / f"{i['id']}.png")
-            write_post(i)
+            write_post(i, items, load_roundups())
 
     if "--rebuild" not in sys.argv and not rerender:
         nxt = next((i for i in items if not i.get("posted")), None)
@@ -427,7 +446,7 @@ def main():
                              "so the pin links to the product page, not a search page")
         else:
             render_pin(nxt, ROOT / "assets" / "pins" / f"{nxt['id']}.png")
-            write_post(nxt)
+            write_post(nxt, items, load_roundups())
             nxt["posted"] = dt.date.today().isoformat()
             pin_id = pinterest_post(nxt)
             if pin_id:
