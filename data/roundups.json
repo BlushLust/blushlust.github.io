@@ -124,5 +124,131 @@
       "Glossy lip stain",
       "Peptide lip tint"
     ]
+  },
+  {
+    "id": "rosy-cheek-edit",
+    "eyebrow": "The Rosy Cheek Edit",
+    "kicker": "ROSY CHEEK EDIT",
+    "hook": [
+      "Rosy cheeks",
+      "for less"
+    ],
+    "title": "The Rosy Cheek Edit: 8 Viral Blush Dupes from the Drugstore",
+    "intro": "Rosy, just-pinched cheeks are everywhere this season. Here are the drugstore blushes that get you the look of the viral luxury picks, all on Amazon.ca.",
+    "items": [
+      "rosy-glow",
+      "pillow-talk-blush",
+      "powder-blush",
+      "cloud-paint",
+      "liquid-blush",
+      "rhode-pocket",
+      "nars-buttermelt",
+      "blush-wand"
+    ],
+    "labels": [
+      "Rosy glow blush",
+      "Pillow Talk blush",
+      "Peachy-gold blush",
+      "Gel-cream blush",
+      "Liquid blush",
+      "Cream blush stick",
+      "Buttery powder blush",
+      "Blush wand"
+    ]
+  },
+  {
+    "id": "full-glam-for-less",
+    "eyebrow": "Maximalist Makeup",
+    "kicker": "FULL GLAM EDIT",
+    "hook": [
+      "Full glam",
+      "for less"
+    ],
+    "title": "Maximalist Makeup for Less: 8 Drugstore Dupes for a Full Glam Look",
+    "intro": "Bold liner, a sculpted face and a glossy lip, without the luxury price tag. Every pick is a drugstore dupe for a viral favourite on Amazon.ca.",
+    "items": [
+      "liquid-liner",
+      "eyeshadow-palette",
+      "mascara",
+      "contour-wand",
+      "iced-out",
+      "positive-light",
+      "lip-plumper",
+      "ruby-woo"
+    ],
+    "labels": [
+      "Liquid liner",
+      "Eyeshadow palette",
+      "Volume mascara",
+      "Contour wand",
+      "Chrome highlighter",
+      "Liquid highlighter",
+      "Plumping gloss",
+      "Matte red lip"
+    ]
+  },
+  {
+    "id": "gifts-lip-lover-under-15",
+    "eyebrow": "Gift Guide",
+    "kicker": "GIFT GUIDE",
+    "hook": [
+      "For the lip",
+      "lover, under $15"
+    ],
+    "title": "Gifts for the Lip Lover: 8 Viral Lip Dupes Under $15",
+    "intro": "Glossy, juicy, cult-favourite lips at drugstore prices. Easy gifts for whoever always has a lip product in hand, all on Amazon.ca.",
+    "items": [
+      "lip-oil",
+      "lip-gloss",
+      "lip-balm",
+      "lip-mask",
+      "black-honey",
+      "maracuja-gloss",
+      "pillow-talk-gloss",
+      "rhode-lip-tint"
+    ],
+    "labels": [
+      "Lip oil",
+      "Butter gloss",
+      "Lip balm",
+      "Overnight lip mask",
+      "Sheer berry shine",
+      "Plumping gloss",
+      "Nude lip gloss",
+      "Lip butter"
+    ],
+    "max_price": 15
+  },
+  {
+    "id": "gifts-lash-lover",
+    "eyebrow": "Gift Guide",
+    "kicker": "GIFT GUIDE",
+    "hook": [
+      "For the",
+      "lash obsessed"
+    ],
+    "title": "Gifts for the Lash Obsessed: 8 Viral Eye Dupes Under $15",
+    "intro": "Mascaras and liners that copy the viral luxury picks, at drugstore prices. Stocking-stuffer friendly and all on Amazon.ca.",
+    "items": [
+      "mascara",
+      "lift-mascara",
+      "thrive-mascara",
+      "superhero-mascara",
+      "roller-lash",
+      "liquid-liner",
+      "eyeliner-pencil",
+      "eyeshadow-palette"
+    ],
+    "labels": [
+      "Sky-high mascara",
+      "Lifting mascara",
+      "Tubing mascara",
+      "Volume mascara",
+      "Curling mascara",
+      "Liquid liner",
+      "Waterproof pencil",
+      "Eyeshadow palette"
+    ],
+    "max_price": 15
   }
 ]
