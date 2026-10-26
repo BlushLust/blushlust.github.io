@@ -156,6 +156,23 @@ def render_pin(item, out):
     im.resize((W, H), Image.LANCZOS).save(out)
 
 
+def latest_price(item_id):
+    """Most recent in-stock Amazon.ca price logged by the daily check (data/prices.csv), or None."""
+    p = ROOT / "data" / "prices.csv"
+    price = None
+    if p.exists():
+        for row in csv.DictReader(p.open(encoding="utf-8")):
+            if row["id"] == item_id:
+                price = float(row["price_cad"]) if row["in_stock"] == "1" and row["price_cad"] else None
+    return price
+
+
+def price_cta(item):
+    """Pin call to action with the price, e.g. $7.96 -> 'Under $8 on Amazon.ca'."""
+    p = latest_price(item["id"])
+    return f"Under ${int(p) + 1} on Amazon.ca \u2192" if p else "Find it on Amazon.ca \u2192"
+
+
 def render_pin_v2(item, out):
     """Fresh-design variant (dark plum, price-led hook) so the same dupe can be re-pinned as new content."""
     im = Image.new("RGB", (W * K, H * K))
@@ -182,7 +199,7 @@ def render_pin_v2(item, out):
         for ln in _wrap(d, name, f_name, 840)[:2]:
             y += _ctext(d, ln, f_name, y, white) + 16
         y += 90
-    _ctext(d, "Find it on Amazon.ca \u2192", font("LiberationSans-Bold.ttf", 42), y + 30, blush)
+    _ctext(d, price_cta(item), font("LiberationSans-Bold.ttf", 42), y + 30, blush)
     if MARK.exists():
         m = Image.open(MARK).convert("RGBA").resize((140 * K, 140 * K), Image.LANCZOS)
         bg = Image.new("RGBA", m.size, (255, 255, 255, 0))
