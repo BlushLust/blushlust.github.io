@@ -388,13 +388,18 @@ def pinterest_post(item):
     import requests
     api = API
     print(f"Pinterest API: {api}" + (" (Sandbox)" if SANDBOX else ""))
-    auth = base64.b64encode(f"{app_id}:{secret}".encode()).decode()
-    r = requests.post(f"{api}/oauth/token", headers={"Authorization": f"Basic {auth}"},
-                      data={"grant_type": "refresh_token", "refresh_token": refresh}, timeout=30)
-    if r.status_code >= 300:
-        raise SystemExit(f"Pinterest OAuth error {r.status_code}: {r.text}")
-    tok = r.json()
-    print(f"OAuth: signed in to Pinterest with refresh token (scopes: {tok.get('scope')})")
+    if os.environ.get("PINTEREST_ACCESS_TOKEN"):
+        # OAuth access token issued via the authorization-code flow (used for Sandbox demo runs)
+        tok = {"access_token": os.environ["PINTEREST_ACCESS_TOKEN"]}
+        print("OAuth: signed in to Pinterest with the account's OAuth access token")
+    else:
+        auth = base64.b64encode(f"{app_id}:{secret}".encode()).decode()
+        r = requests.post(f"{api}/oauth/token", headers={"Authorization": f"Basic {auth}"},
+                          data={"grant_type": "refresh_token", "refresh_token": refresh}, timeout=30)
+        if r.status_code >= 300:
+            raise SystemExit(f"Pinterest OAuth error {r.status_code}: {r.text}")
+        tok = r.json()
+        print(f"OAuth: signed in to Pinterest with refresh token (scopes: {tok.get('scope')})")
     hdr = {"Authorization": f"Bearer {tok['access_token']}"}
 
     me = requests.get(f"{api}/user_account", headers=hdr, timeout=30)
