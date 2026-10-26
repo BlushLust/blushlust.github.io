@@ -201,8 +201,30 @@ FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '&family=Montserrat:wght@700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">')
 
 
-def page(title, desc, body, root="", og_image=None):
-    og = f'<meta property="og:image" content="{SITE}/{og_image}">' if og_image else ""
+def page(title, desc, body, root="", og_image=None, path="", article=None):
+    """article = {"headline":..., "published": "YYYY-MM-DD"} turns on Article Rich Pin / Schema tags."""
+    url = f"{SITE}/{path}"
+    og = (f'<link rel="canonical" href="{url}">'
+          f'<meta property="og:site_name" content="Blush Lust">'
+          f'<meta property="og:type" content="{"article" if article else "website"}">'
+          f'<meta property="og:title" content="{html.escape(article["headline"] if article else title)}">'
+          f'<meta property="og:description" content="{html.escape(desc)}">'
+          f'<meta property="og:url" content="{url}">'
+          f'<meta property="og:locale" content="en_CA">')
+    if og_image:
+        og += f'<meta property="og:image" content="{SITE}/{og_image}">'
+    if article:
+        pub = article.get("published") or dt.date.today().isoformat()
+        og += (f'<meta property="article:published_time" content="{pub}">'
+               f'<meta property="article:author" content="Blush Lust">')
+        ld = {"@context": "https://schema.org", "@type": "Article", "headline": article["headline"][:110],
+              "description": desc, "datePublished": pub, "url": url,
+              "author": {"@type": "Organization", "name": "Blush Lust"},
+              "publisher": {"@type": "Organization", "name": "Blush Lust",
+                            "logo": {"@type": "ImageObject", "url": f"{SITE}/assets/mark.png"}}}
+        if og_image:
+            ld["image"] = f"{SITE}/{og_image}"
+        og += '<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False).replace("</", "<\\/") + '</script>'
     return f'''<!doctype html>
 <html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="p:domain_verify" content="fdaa1a79643781f0e78cbfea120224f9"/>
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(desc)}">{og}<meta name="theme-color" content="#3c0c26">
@@ -226,6 +248,38 @@ def amazon(item):
 
 def post_title(item):
     return f"{item['viral']} Dupe: {item['dupe']}"
+
+
+# Pinterest search phrases per category (keyword goes first in titles / board names)
+CAT_WORDS = {"Lips": "lip", "Cheeks": "blush", "Complexion": "makeup", "Glow": "highlighter",
+             "Eyes": "eye makeup", "Brows": "brow", "Lashes": "mascara"}
+CATEGORY_BOARDS = {
+    "Lips": "Drugstore Lip Dupes",
+    "Cheeks": "Drugstore Blush Dupes",
+    "Complexion": "Drugstore Foundation & Complexion Dupes",
+    "Glow": "Highlighter & Glow Makeup Dupes",
+    "Eyes": "Eye, Brow & Lash Makeup Dupes",
+    "Brows": "Eye, Brow & Lash Makeup Dupes",
+    "Lashes": "Eye, Brow & Lash Makeup Dupes",
+}
+GIFT_BOARD = "Makeup Gift Ideas Under $15"
+
+
+def pin_title(item):
+    """Keyword-first Pin title (what people type into Pinterest search), max 100 chars."""
+    word = CAT_WORDS.get(item.get("category"), "makeup")
+    t = f"{item['viral']} Dupe | Cheap Drugstore {word.title()} Dupe on Amazon"
+    if len(t) > 100:
+        t = f"{item['viral']} Dupe | Drugstore {word.title()} for Less"
+    return t[:100]
+
+
+def pin_description(item):
+    word = CAT_WORDS.get(item.get("category"), "makeup")
+    d = (f"Looking for a {item['viral']} dupe? {item['dupe']} gets you the same look for way less. "
+         f"{item['blurb']} Best drugstore {word} dupe for the viral look. "
+         f"Tap the Pin to shop it on Amazon.ca. {item['tags']} #drugstoremakeup #affordablemakeup")
+    return d[:500]
 
 
 def _related(item, items, n=3):
@@ -262,7 +316,8 @@ def write_post(item, items=(), roundups=()):
 </article>'''
     (ROOT / "posts" / f"{item['id']}.html").write_text(
         page(post_title(item) + " — Blush Lust", item["blurb"], body, root="../",
-             og_image=f"assets/pins/{item['id']}.png"), encoding="utf-8")
+             og_image=f"assets/pins/{item['id']}.png", path=f"posts/{item['id']}.html",
+             article={"headline": pin_title(item), "published": item.get("posted")}), encoding="utf-8")
 
 
 ROUNDUPS = ROOT / "data" / "roundups.json"
@@ -295,7 +350,8 @@ def write_roundups(items, rerender=False):
                 f'{rows}<img src="../assets/pins/{r["id"]}.png" alt="{html.escape(r["title"])}" style="max-width:420px;margin:32px auto;border-radius:18px">'
                 '<p style="font-size:.9rem;color:var(--ink-soft)">Prices change often &mdash; check Amazon.ca for the current price.</p></article>')
         (ROOT / "posts" / f"{r['id']}.html").write_text(
-            page(r["title"] + " — Blush Lust", r["intro"], body, root="../", og_image=f"assets/pins/{r['id']}.png"),
+            page(r["title"] + " — Blush Lust", r["intro"], body, root="../", og_image=f"assets/pins/{r['id']}.png",
+                 path=f"posts/{r['id']}.html", article={"headline": r["title"]}),
             encoding="utf-8")
 
 
@@ -337,7 +393,8 @@ def write_finder(items):
             'b.classList.add("on");cat=b.dataset.cat;f()}});q.oninput=f;var p=new URLSearchParams(location.search).get("q");if(p)q.value=p;f()})();</script>')
     (ROOT / "dupe-finder.html").write_text(
         page("Makeup Dupe Finder — Drugstore Dupes for Viral Makeup | Blush Lust",
-             f"Search {len(posted)} drugstore dupes for viral luxury makeup from Charlotte Tilbury, Rare Beauty, Dior, Fenty and more.", body),
+             f"Search {len(posted)} drugstore dupes for viral luxury makeup from Charlotte Tilbury, Rare Beauty, Dior, Fenty and more.", body,
+             path="dupe-finder.html"),
         encoding="utf-8")
 
 
@@ -422,7 +479,10 @@ def pinterest_post(item):
                     return hit
             return None
 
-        board_id = find_board(BOARD_NAME)
+        board_id = None if SANDBOX else find_board(CATEGORY_BOARDS.get(item.get("category"), ""))
+        if board_id:
+            print(f"Category board '{CATEGORY_BOARDS[item['category']]}' -> {board_id}")
+        board_id = board_id or find_board(BOARD_NAME)
         if not board_id and SANDBOX:
             # Sandbox starts empty - create a board there so the demo can pin to it
             for name in (BOARD_NAME, f"{BOARD_NAME} Sandbox"):
@@ -442,8 +502,8 @@ def pinterest_post(item):
     img = base64.b64encode((ROOT / "assets" / "pins" / f"{item['id']}.png").read_bytes()).decode()
     body = {
         "board_id": board_id,
-        "title": post_title(item)[:100],
-        "description": f"{item['blurb']} {item['tags']}"[:500],
+        "title": pin_title(item),
+        "description": pin_description(item),
         "link": f"{SITE}/posts/{item['id']}.html",
         "alt_text": f"{item['viral']} versus drugstore dupe {item['dupe']}"[:500],
         "media_source": {"source_type": "image_base64", "content_type": "image/png", "data": img},
@@ -460,14 +520,27 @@ def pinterest_post(item):
 
 
 def queue_manual(item):
+    """Queue the dupe for hand-posting: the classic design and a fresh v2 design, each with its board."""
     path = ROOT / "data" / "pins-to-post.csv"
-    new = not path.exists()
-    with path.open("a", newline="", encoding="utf-8") as f:
-        w = csv.writer(f)
-        if new:
-            w.writerow(["date", "image", "title", "description", "link"])
-        w.writerow([dt.date.today().isoformat(), f"{SITE}/assets/pins/{item['id']}.png",
-                    post_title(item), f"{item['blurb']} {item['tags']}", f"{SITE}/posts/{item['id']}.html"])
+    header = ["date", "image", "title", "description", "link", "board"]
+    rows = []
+    if path.exists():
+        with path.open(newline="", encoding="utf-8") as f:
+            rows = [r for r in csv.DictReader(f)]
+    v2 = ROOT / "assets" / "pins" / f"{item['id']}-v2.png"
+    render_pin_v2(item, v2)
+    board = CATEGORY_BOARDS.get(item.get("category"), BOARD_NAME)
+    today = dt.date.today().isoformat()
+    link = f"{SITE}/posts/{item['id']}.html"
+    rows.append({"date": today, "image": f"{SITE}/assets/pins/{item['id']}.png", "title": pin_title(item),
+                 "description": pin_description(item), "link": link, "board": board})
+    rows.append({"date": today, "image": f"{SITE}/assets/pins/{item['id']}-v2.png", "title": pin_title(item),
+                 "description": pin_description(item), "link": link, "board": BOARD_NAME})
+    with path.open("w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=header, extrasaction="ignore")
+        w.writeheader()
+        for r in rows:
+            w.writerow({k: r.get(k, "") for k in header})
 
 
 # ---------------------------------------------------------------- main
