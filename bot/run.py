@@ -374,26 +374,47 @@ def write_sitemap(items):
 
 
 # ---------------------------------------------------------------- pinterest
+API = os.environ.get("PINTEREST_API") or "https://api.pinterest.com/v5"
+SANDBOX = "api-sandbox." in API
+
+
 def pinterest_post(item):
-    """Returns the new pin id, or None if API secrets are not configured."""
+    """Returns the new pin id, or None if API secrets are not configured
+    (or the app is still on Trial access and this is a production run)."""
     app_id, secret = os.environ.get("PINTEREST_APP_ID"), os.environ.get("PINTEREST_APP_SECRET")
     refresh = os.environ.get("PINTEREST_REFRESH_TOKEN")
     if not (app_id and secret and refresh):
         return None
     import requests
-    api = "https://api.pinterest.com/v5"
+    api = API
+    print(f"Pinterest API: {api}" + (" (Sandbox)" if SANDBOX else ""))
     auth = base64.b64encode(f"{app_id}:{secret}".encode()).decode()
     r = requests.post(f"{api}/oauth/token", headers={"Authorization": f"Basic {auth}"},
                       data={"grant_type": "refresh_token", "refresh_token": refresh}, timeout=30)
-    r.raise_for_status()
-    hdr = {"Authorization": f"Bearer {r.json()['access_token']}"}
+    if r.status_code >= 300:
+        raise SystemExit(f"Pinterest OAuth error {r.status_code}: {r.text}")
+    tok = r.json()
+    print(f"OAuth: signed in to Pinterest with refresh token (scopes: {tok.get('scope')})")
+    hdr = {"Authorization": f"Bearer {tok['access_token']}"}
+
+    me = requests.get(f"{api}/user_account", headers=hdr, timeout=30)
+    if me.ok:
+        print(f"Pinterest account: {me.json().get('username')}")
 
     board_id = os.environ.get("PINTEREST_BOARD_ID")
     if not board_id:
         boards = requests.get(f"{api}/boards", headers=hdr, params={"page_size": 100}, timeout=30).json()
         board_id = next((b["id"] for b in boards.get("items", []) if b["name"].lower() == BOARD_NAME.lower()), None)
+        if not board_id and SANDBOX:
+            # Sandbox starts empty - create the board there so the demo can pin to it
+            b = requests.post(f"{api}/boards", headers=hdr, json={"name": BOARD_NAME}, timeout=30)
+            if b.status_code >= 300:
+                raise SystemExit(f"Pinterest error {b.status_code} creating Sandbox board: {b.text}")
+            board_id = b.json()["id"]
+            print(f"Created Sandbox board '{BOARD_NAME}' -> {board_id}")
         if not board_id:
             raise SystemExit(f"Board '{BOARD_NAME}' not found on the Pinterest account")
+    print(f"Board '{BOARD_NAME}' -> {board_id}")
 
     img = base64.b64encode((ROOT / "assets" / "pins" / f"{item['id']}.png").read_bytes()).decode()
     body = {
@@ -405,9 +426,14 @@ def pinterest_post(item):
         "media_source": {"source_type": "image_base64", "content_type": "image/png", "data": img},
     }
     r = requests.post(f"{api}/pins", headers=hdr, json=body, timeout=60)
+    if r.status_code == 403 and not SANDBOX and '"code":29' in r.text.replace(" ", ""):
+        print("Pinterest app is on Trial access - production Pins not allowed yet; queuing for manual posting")
+        return None
     if r.status_code >= 300:
         raise SystemExit(f"Pinterest error {r.status_code}: {r.text}")
-    return r.json().get("id")
+    pin = r.json()
+    print(f"Pin created: id={pin.get('id')} title={pin.get('title')!r} link={pin.get('link')}")
+    return pin.get("id")
 
 
 def queue_manual(item):
@@ -436,6 +462,14 @@ def main():
             if rerender or not (ROOT / "assets" / "pins" / f"{i['id']}.png").exists():
                 render_pin(i, ROOT / "assets" / "pins" / f"{i['id']}.png")
             write_post(i, items, load_roundups())
+
+    if "--demo" in sys.argv:
+        # Demo / review run: pin the next queued dupe (normally to the Sandbox) and change nothing on the site
+        nxt = next((i for i in items if not i.get("posted")), None) or items[-1]
+        render_pin(nxt, ROOT / "assets" / "pins" / f"{nxt['id']}.png")
+        pin_id = pinterest_post(nxt)
+        print(f"Demo: pinned {nxt['id']} -> {pin_id}" if pin_id else "Demo: no pin created")
+        return
 
     if "--rebuild" not in sys.argv and not rerender:
         nxt = next((i for i in items if not i.get("posted")), None)
