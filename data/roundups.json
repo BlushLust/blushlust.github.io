@@ -250,5 +250,65 @@
       "Eyeshadow palette"
     ],
     "max_price": 15
+  },
+  {
+    "id": "dupes-under-8",
+    "eyebrow": "Under $8",
+    "kicker": "UNDER $8",
+    "hook": [
+      "Viral dupes",
+      "under $8"
+    ],
+    "title": "6 Viral Makeup Dupes Under $8 on Amazon.ca",
+    "intro": "The cheapest swaps on the site: cult-favourite looks for less than a fancy coffee. Every pick was under $8 on Amazon.ca when we last checked.",
+    "items": [
+      "ruby-woo",
+      "pillow-talk-gloss",
+      "lip-balm",
+      "brow-gel",
+      "milk-lip-cheek",
+      "killawatt-highlight"
+    ],
+    "labels": [
+      "Matte red lipstick",
+      "Nude lip gloss",
+      "Lip balm",
+      "Brow gel",
+      "Lip & cheek stick",
+      "Highlighter"
+    ],
+    "max_price": 8
+  },
+  {
+    "id": "gifts-glow-girl",
+    "eyebrow": "Gift Guide",
+    "kicker": "GIFT GUIDE",
+    "hook": [
+      "For the",
+      "glow girl"
+    ],
+    "title": "Gifts for the Glow Girl: 8 Viral Glow Dupes Under $20",
+    "intro": "Highlighters, glow filters and bronzing drops that copy the luxury favourites. Easy gifts for anyone who loves a lit-from-within look, all on Amazon.ca.",
+    "items": [
+      "filter-glow",
+      "highlight-wand",
+      "killawatt-highlight",
+      "bronzing-drops",
+      "glow-drops",
+      "positive-light",
+      "powder-filter",
+      "iced-out"
+    ],
+    "labels": [
+      "Glow filter",
+      "Highlight wand",
+      "Powder highlighter",
+      "Bronzing drops",
+      "Glow primer",
+      "Liquid luminizer",
+      "Powder filter",
+      "Chrome highlighter"
+    ],
+    "max_price": 20
   }
 ]
