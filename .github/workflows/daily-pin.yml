@@ -4,6 +4,11 @@ on:
   schedule:
     - cron: "47 0 * * *"   # every day ~8:47 pm Toronto time (00:47 UTC)
   workflow_dispatch:        # adds a "Run workflow" button for manual runs
+    inputs:
+      demo:
+        description: "Demo run: pin to Pinterest Sandbox only, don't change the site"
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -22,7 +27,17 @@ jobs:
           pip install pillow requests
       - name: Check the queue before pinning
         run: python bot/validate.py
+      - name: Demo - sign in to Pinterest and create a Pin (Sandbox)
+        if: ${{ inputs.demo }}
+        env:
+          PINTEREST_APP_ID: ${{ secrets.PINTEREST_APP_ID }}
+          PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
+          PINTEREST_REFRESH_TOKEN: ${{ secrets.PINTEREST_REFRESH_TOKEN }}
+          PINTEREST_BOARD: DUPES
+          PINTEREST_API: https://api-sandbox.pinterest.com/v5
+        run: python bot/run.py --demo
       - name: Make today's dupe (and pin it if Pinterest is connected)
+        if: ${{ !inputs.demo }}
         env:
           PINTEREST_APP_ID: ${{ secrets.PINTEREST_APP_ID }}
           PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
@@ -30,8 +45,10 @@ jobs:
           PINTEREST_BOARD: DUPES
         run: python bot/run.py
       - name: Check Amazon links (blocks publishing if any link is wrong)
+        if: ${{ !inputs.demo }}
         run: python bot/validate.py
       - name: Publish to the website
+        if: ${{ !inputs.demo }}
         run: |
           git config user.name "BlushLust"
           git config user.email "BlushLust@users.noreply.github.com"
