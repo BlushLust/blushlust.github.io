@@ -408,15 +408,33 @@ def pinterest_post(item):
 
     board_id = os.environ.get("PINTEREST_BOARD_ID")
     if not board_id:
-        boards = requests.get(f"{api}/boards", headers=hdr, params={"page_size": 100}, timeout=30).json()
-        board_id = next((b["id"] for b in boards.get("items", []) if b["name"].lower() == BOARD_NAME.lower()), None)
+        def find_board(name):
+            for privacy in (None, "ALL"):
+                params = {"page_size": 100}
+                if privacy:
+                    params["privacy"] = privacy
+                res = requests.get(f"{api}/boards", headers=hdr, params=params, timeout=30)
+                if not res.ok:
+                    print(f"Board list ({privacy or 'default'}) -> {res.status_code}: {res.text[:200]}")
+                    continue
+                hit = next((b["id"] for b in res.json().get("items", []) if b["name"].lower() == name.lower()), None)
+                if hit:
+                    return hit
+            return None
+
+        board_id = find_board(BOARD_NAME)
         if not board_id and SANDBOX:
-            # Sandbox starts empty - create the board there so the demo can pin to it
-            b = requests.post(f"{api}/boards", headers=hdr, json={"name": BOARD_NAME}, timeout=30)
-            if b.status_code >= 300:
-                raise SystemExit(f"Pinterest error {b.status_code} creating Sandbox board: {b.text}")
-            board_id = b.json()["id"]
-            print(f"Created Sandbox board '{BOARD_NAME}' -> {board_id}")
+            # Sandbox starts empty - create a board there so the demo can pin to it
+            for name in (BOARD_NAME, f"{BOARD_NAME} Sandbox"):
+                board_id = find_board(name)
+                if board_id:
+                    break
+                b = requests.post(f"{api}/boards", headers=hdr, json={"name": name}, timeout=30)
+                if b.ok:
+                    board_id = b.json()["id"]
+                    print(f"Created Sandbox board '{name}' -> {board_id}")
+                    break
+                print(f"Could not create Sandbox board '{name}': {b.status_code} {b.text[:200]}")
         if not board_id:
             raise SystemExit(f"Board '{BOARD_NAME}' not found on the Pinterest account")
     print(f"Board '{BOARD_NAME}' -> {board_id}")
