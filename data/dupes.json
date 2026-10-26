@@ -1181,5 +1181,80 @@
     "blurb": "A lightweight pressed powder that controls shine and softly blurs pores for a smooth, matte finish.",
     "cta": "Same soft-matte finish",
     "tags": "#settingpowder #maccosmetics #maybelline #makeupdupes"
+  },
+  {
+    "id": "flush-balm",
+    "category": "Cheeks",
+    "title": "the cream flush that melts in",
+    "hook": [
+      "Balmy, glowy",
+      "flush for less"
+    ],
+    "viral": "Merit Flush Balm",
+    "dupe": "Milani Cheek Kiss Cream Blush in Blushing Berry",
+    "asin": "B08SZ3FL29",
+    "blurb": "A creamy, blendable blush that sheers out to a soft, natural-looking flush with a fresh, dewy finish.",
+    "cta": "Tap on, blend, done",
+    "tags": "#creamblush #meritbeauty #milanicosmetics #makeupdupes"
+  },
+  {
+    "id": "boy-brow",
+    "category": "Brows",
+    "title": "the fluffy, brushed-up brow",
+    "hook": [
+      "Fluffy brows",
+      "for less"
+    ],
+    "viral": "Glossier Boy Brow",
+    "dupe": "essence Make Me Brow Eyebrow Gel Mascara",
+    "asin": "B010T6Y2SU",
+    "blurb": "A tinted, fibre-filled brow gel that adds a little colour and volume and holds brows in place all day.",
+    "cta": "Brush up and go",
+    "tags": "#browgel #glossier #essencecosmetics #makeupdupes"
+  },
+  {
+    "id": "pro-filtr",
+    "category": "Complexion",
+    "title": "the soft-matte, long-wear foundation",
+    "hook": [
+      "Soft-matte skin",
+      "for less"
+    ],
+    "viral": "Fenty Beauty Pro Filt'r Soft Matte Foundation",
+    "dupe": "Maybelline Fit Me Matte + Poreless Foundation",
+    "asin": "B00PFCSURS",
+    "blurb": "A lightweight liquid foundation that controls shine and blurs pores for a natural matte finish, in a wide shade range.",
+    "cta": "Same soft-matte finish",
+    "tags": "#foundation #fentybeauty #maybelline #makeupdupes"
+  },
+  {
+    "id": "liquid-matte-lip",
+    "category": "Lips",
+    "title": "the velvety liquid lipstick",
+    "hook": [
+      "Velvet matte lips",
+      "for less"
+    ],
+    "viral": "Kylie Cosmetics Matte Liquid Lipstick",
+    "dupe": "NYX Soft Matte Lip Cream in Abu Dhabi",
+    "asin": "B004LXJOEK",
+    "blurb": "A creamy liquid lipstick that dries down to a soft, velvety matte without feeling as tight or drying.",
+    "cta": "Swipe on velvet colour",
+    "tags": "#liquidlipstick #kyliecosmetics #nyxcosmetics #makeupdupes"
+  },
+  {
+    "id": "easy-bake-banana",
+    "category": "Complexion",
+    "title": "the banana baking powder",
+    "hook": [
+      "Bright, baked",
+      "under-eyes for less"
+    ],
+    "viral": "Huda Beauty Easy Bake Loose Powder in Banana Bread",
+    "dupe": "Wet n Wild Photo Focus Loose Baking Setting Powder in Banana",
+    "asin": "B0847RYJMK",
+    "blurb": "A finely milled yellow-toned loose powder for baking and setting that brightens the under-eye and keeps concealer from creasing.",
+    "cta": "Bake, brush, brighten",
+    "tags": "#bakingpowder #hudabeauty #wetnwild #makeupdupes"
   }
 ]
