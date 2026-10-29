@@ -211,7 +211,70 @@ def render_pin_v2(item, out):
     im.resize((W, H), Image.LANCZOS).save(out)
 
 
+BOLD_THEMES = {  # (top, bottom, accent, badge-bg, badge-text) - bright, high-contrast backgrounds (idea #39)
+    "hotpink": ((236, 64, 122), (120, 20, 80), (255, 226, 236), (255, 214, 0), (60, 12, 38)),
+    "coral": ((255, 112, 92), (176, 36, 72), (255, 236, 228), (255, 255, 255), (143, 29, 51)),
+    "berry": ((150, 22, 92), (52, 8, 40), (255, 182, 214), (255, 92, 160), (255, 255, 255)),
+    "lilac": ((170, 120, 230), (82, 36, 140), (246, 232, 255), (255, 214, 0), (60, 12, 38)),
+    "teal": ((24, 150, 160), (14, 60, 84), (214, 248, 246), (255, 112, 150), (255, 255, 255)),
+}
+
+
+def render_pin_v3(item, out, hook=None, theme="hotpink", kicker="VIRAL DUPE"):
+    """Bold, bright variant: saturated gradient, huge white hook, white dupe card and a price badge."""
+    top, bot, acc, bbg, btx = BOLD_THEMES[theme]
+    im = Image.new("RGB", (W * K, H * K))
+    d = ImageDraw.Draw(im)
+    for y in range(H * K):
+        t = y / (H * K)
+        d.line([(0, y), (W * K, y)], fill=tuple(int(top[i] + (bot[i] - top[i]) * t) for i in range(3)))
+    white = (255, 255, 255)
+    fk = font("LiberationSans-Bold.ttf", 34)
+    kw = d.textbbox((0, 0), kicker, font=fk)[2] + 70 * K
+    d.rounded_rectangle(((W * K - kw) // 2, 110 * K, (W * K + kw) // 2, 176 * K), radius=33 * K, fill=white)
+    _ctext(d, kicker, fk, 124, top if sum(top) < 500 else INK)
+    hook = hook or item.get("hook") or [item["title"], "for less"]
+    size = 124
+    while size > 70 and max(d.textbbox((0, 0), ln, font=font("LiberationSans-Bold.ttf", size))[2] for ln in hook) > 900 * K:
+        size -= 4
+    y = 240
+    for ln in hook:
+        y += _ctext(d, ln, font("LiberationSans-Bold.ttf", size), y, white) + 14
+    y = max(y + 60, 640)
+    f_lab, f_name = font("LiberationSans-Bold.ttf", 28), font("LiberationSerif-Bold.ttf", 50)
+    lines = _wrap(d, item["dupe"], f_name, 760)[:3]
+    ch = 120 + 62 * len(lines)
+    d.rounded_rectangle((90 * K, y * K, (W - 90) * K, (y + ch) * K), radius=36 * K, fill=white)
+    _ctext(d, "THE DUPE", f_lab, y + 36, top if sum(top) < 500 else INK)
+    yy = y + 84
+    for ln in lines:
+        yy += _ctext(d, ln, f_name, yy, INK) + 14
+    y += ch + 40
+    f_v = font("LiberationSans-Regular.ttf", 32)
+    for ln in _wrap(d, "instead of " + item["viral"], f_v, 820)[:2]:
+        y += _ctext(d, ln, f_v, y, acc) + 10
+    p = latest_price(item["id"])
+    badge = f"UNDER ${int(p) + 1}" if p else "SHOP IT"
+    fb = font("LiberationSans-Bold.ttf", 54)
+    bw = d.textbbox((0, 0), badge, font=fb)[2] + 90 * K
+    by = max(y + 70, 1010)
+    d.rounded_rectangle(((W * K - bw) // 2, by * K, (W * K + bw) // 2, (by + 100) * K), radius=50 * K, fill=bbg)
+    _ctext(d, badge, fb, by + 20, btx)
+    _ctext(d, "on Amazon.ca  →", font("LiberationSans-Bold.ttf", 34), by + 120, white)
+    if MARK.exists():
+        m = Image.open(MARK).convert("RGBA").resize((110 * K, 110 * K), Image.LANCZOS)
+        bg = Image.new("RGBA", m.size, (255, 255, 255, 0))
+        ImageDraw.Draw(bg).ellipse((0, 0, m.width - 1, m.height - 1), fill=(255, 255, 255, 240))
+        bg.alpha_composite(m)
+        im.paste(bg, ((W * K - m.width) // 2, 1265 * K), bg)
+    _ctext(d, "B L U S H   L U S T", font("LiberationSans-Bold.ttf", 32), 1390, white)
+    _ctext(d, "blushlust.github.io", font("LiberationSans-Regular.ttf", 24), 1436, acc)
+    im.resize((W, H), Image.LANCZOS).save(out)
+
+
 # ---------------------------------------------------------------- web pages
+# Pinterest "Save" button on hover over images (idea #40) - visitors can pin our pin images themselves
+PINIT = '<script async defer src="https://assets.pinterest.com/js/pinit.js" data-pin-hover="true" data-pin-tall="true"></script>'
 FONTS = ('<link rel="preconnect" href="https://fonts.googleapis.com">'
          '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
          '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700'
@@ -245,10 +308,10 @@ def page(title, desc, body, root="", og_image=None, path="", article=None):
     return f'''<!doctype html>
 <html lang="en-CA"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="p:domain_verify" content="fdaa1a79643781f0e78cbfea120224f9"/>
 <title>{html.escape(title)}</title><meta name="description" content="{html.escape(desc)}">{og}<meta name="theme-color" content="#3c0c26">
-<link rel="icon" href="{root}assets/favicon.png">{FONTS}<link rel="stylesheet" href="{root}style.css"></head>
+<link rel="icon" href="{root}assets/favicon.png">{FONTS}<link rel="stylesheet" href="{root}style.css">{PINIT}</head>
 <body>
 <header class="site-head"><div class="wrap">
-<a class="brand" href="{root}index.html"><img src="{root}assets/mark.png" alt="Blush Lust logo"><span><b>Blush Lust</b><small>Gourmet Beauty</small></span></a>
+<a class="brand" href="{root}index.html"><img src="{root}assets/mark.png" alt="Blush Lust logo" data-pin-nopin="true"><span><b>Blush Lust</b><small>Gourmet Beauty</small></span></a>
 <nav><a href="{root}index.html">Dupes</a><a href="{root}dupe-finder.html">Dupe finder</a><a href="{root}about.html">About</a></nav>
 </div></header>
 <main class="wrap">{body}</main>
@@ -325,7 +388,7 @@ def write_post(item, items=(), roundups=()):
 <section class="dupe"><h2>{html.escape(item["dupe"])}</h2>
 <div class="vs"><div><b>The viral pick</b>{html.escape(item["viral"])}</div><div class="arrow">vs.</div><div><b>The dupe</b>{html.escape(item["dupe"])}</div></div>
 <a class="btn" href="{link}" rel="sponsored nofollow noopener" target="_blank">{"Shop" if item.get("asin") else "Find"} the dupe on Amazon.ca &rarr;</a></section>
-<a href="{link}" rel="sponsored nofollow noopener" target="_blank"><img src="../assets/pins/{item["id"]}.png" alt="{html.escape(post_title(item))}" style="max-width:420px;margin:32px auto;border-radius:18px"></a>
+<a href="{link}" rel="sponsored nofollow noopener" target="_blank"><img src="../assets/pins/{item["id"]}.png" alt="{html.escape(post_title(item))}" data-pin-url="{SITE}/posts/{item["id"]}.html" data-pin-description="{html.escape(pin_title(item))}" style="max-width:420px;margin:32px auto;border-radius:18px"></a>
 <p style="text-align:center"><a class="btn" href="{link}" rel="sponsored nofollow noopener" target="_blank">See today&rsquo;s price on Amazon.ca &rarr;</a></p>
 <p style="font-size:.9rem;color:var(--ink-soft)">Comparisons reflect what beauty shoppers commonly say, not lab testing. Shades and formulas vary &mdash; check reviews before you buy.</p>
 {rel_html}{guide_html}
