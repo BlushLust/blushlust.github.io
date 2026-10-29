@@ -584,7 +584,8 @@ def pinterest_post(item):
         "board_id": board_id,
         "title": pin_title(item),
         "description": pin_description(item),
-        "link": f"{SITE}/posts/{item['id']}.html",
+        # unique UTM tag so Pinterest never treats this as a duplicate Pin link
+        "link": f"{SITE}/posts/{item['id']}.html?utm_source=pinterest&utm_medium=pin&utm_content=api-{item['id']}",
         "alt_text": f"{item['viral']} versus drugstore dupe {item['dupe']}"[:500],
         "media_source": {"source_type": "image_base64", "content_type": "image/png", "data": img},
     }

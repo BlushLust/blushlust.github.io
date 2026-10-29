@@ -41,7 +41,9 @@ def main():
         rows.append({"Title": title, "Media URL": f"{run.SITE}/assets/pins/{name}",
                      "Pinterest board": run.CATEGORY_BOARDS.get(item["category"], "DUPES"),
                      "Thumbnail": "", "Description": run.pin_description(item)[:500],
-                     "Link": f"{run.SITE}/posts/{item['id']}.html",
+                     # Pinterest bulk upload rejects rows whose link is already used by another
+                     # Pin ("Duplicate Pin link"), so each variant gets its own UTM tag.
+                     "Link": f"{run.SITE}/posts/{item['id']}.html?utm_source=pinterest&utm_medium=pin&utm_content={name[:-4]}",
                      "Publish date": when.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%S"),
                      "Keywords": f"{item['viral']} dupe, drugstore makeup dupes, makeup dupes"})
     out = ROOT / "data" / "bulk-pins.csv"
