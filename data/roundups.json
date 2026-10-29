@@ -310,5 +310,63 @@
       "Chrome highlighter"
     ],
     "max_price": 20
+  },
+  {
+    "id": "cloud-skin-for-less",
+    "eyebrow": "Trend Edit",
+    "kicker": "TREND EDIT",
+    "hook": [
+      "Cloud skin",
+      "for less"
+    ],
+    "title": "Cloud Skin for Less: 6 Blurring Drugstore Dupes",
+    "intro": "Soft-focus, velvety skin is one of 2026's biggest makeup trends. These blurring primers, powders and soft-matte bases copy the luxury favourites for a fraction of the price, all on Amazon.ca.",
+    "items": [
+      "putty-primer",
+      "grip-primer",
+      "powder-filter",
+      "hourglass-veil",
+      "studio-fix-powder",
+      "cream-powder"
+    ],
+    "labels": [
+      "Pore-blur primer",
+      "Grip primer",
+      "Powder filter",
+      "Setting powder",
+      "Powder foundation",
+      "Cream-to-powder base"
+    ]
+  },
+  {
+    "id": "tiktok-famous-dupes",
+    "eyebrow": "Viral Now",
+    "kicker": "VIRAL NOW",
+    "hook": [
+      "TikTok-famous",
+      "for less"
+    ],
+    "title": "TikTok-Famous Makeup for Less: 8 Viral Dupes",
+    "intro": "The makeup everyone keeps posting about, and the cheaper dupes that get you the same look. Every pick is on Amazon.ca.",
+    "items": [
+      "black-honey",
+      "thrive-mascara",
+      "filter-glow",
+      "liquid-blush",
+      "lip-oil",
+      "rhode-lip-tint",
+      "milk-lip-cheek",
+      "glow-drops"
+    ],
+    "labels": [
+      "Sheer berry lip",
+      "Tubing mascara",
+      "Glow filter",
+      "Liquid blush",
+      "Lip oil",
+      "Peptide lip tint",
+      "Lip + cheek stick",
+      "Glow primer"
+    ]
   }
 ]
