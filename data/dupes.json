@@ -1258,5 +1258,110 @@
     "blurb": "A finely milled yellow-toned loose powder for baking and setting that brightens the under-eye and keeps concealer from creasing.",
     "cta": "Bake, brush, brighten",
     "tags": "#bakingpowder #hudabeauty #wetnwild #makeupdupes"
+  },
+  {
+    "id": "glowscreen",
+    "category": "Complexion",
+    "title": "the glowy SPF primer",
+    "hook": [
+      "Glowy SPF skin",
+      "for less"
+    ],
+    "viral": "Supergoop! Glowscreen SPF 40",
+    "dupe": "e.l.f. SKIN Suntouchable Whoa Glow SPF 30",
+    "asin": "B0BSP3N82M",
+    "blurb": "A sheer, luminous sunscreen that doubles as a glow primer, so skin looks lit-from-within under or without makeup.",
+    "cta": "Glow and protect",
+    "tags": "#spfprimer #supergoop #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "unseen-sunscreen",
+    "category": "Complexion",
+    "title": "the invisible SPF primer",
+    "hook": [
+      "Invisible SPF",
+      "for less"
+    ],
+    "viral": "Supergoop! Unseen Sunscreen SPF 40",
+    "dupe": "e.l.f. SKIN Suntouchable Invisible SPF 35",
+    "asin": "B0C7SFTTV3",
+    "blurb": "A clear, weightless, gel-like sunscreen with a velvety finish that grips makeup like a primer.",
+    "cta": "Clear, primer-like SPF",
+    "tags": "#sunscreen #supergoop #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "sheer-glow",
+    "category": "Complexion",
+    "title": "the natural, luminous foundation",
+    "hook": [
+      "Luminous skin",
+      "for less"
+    ],
+    "viral": "NARS Sheer Glow Foundation",
+    "dupe": "Maybelline Fit Me Hydrate + Smooth Foundation",
+    "asin": "B0H3X1BPHK",
+    "blurb": "A hydrating, medium-coverage foundation with a natural luminous finish for normal to dry skin.",
+    "cta": "Same natural glow",
+    "tags": "#foundation #nars #maybelline #makeupdupes"
+  },
+  {
+    "id": "fix-plus",
+    "category": "Complexion",
+    "title": "the dewy setting mist",
+    "hook": [
+      "Dewy, set skin",
+      "for less"
+    ],
+    "viral": "MAC Prep + Prime Fix+",
+    "dupe": "NYX Dewy Finish Setting Spray",
+    "asin": "B00B4YY1GU",
+    "blurb": "A fine, hydrating mist that sets makeup and melts powder into skin for a fresh, dewy finish.",
+    "cta": "Mist, set, glow",
+    "tags": "#settingspray #maccosmetics #nyxcosmetics #makeupdupes"
+  },
+  {
+    "id": "hypnose-mascara",
+    "category": "Eyes",
+    "title": "the buildable volume mascara",
+    "hook": [
+      "Big, separated lashes",
+      "for less"
+    ],
+    "viral": "Lancome Hypnose Mascara",
+    "dupe": "L'Oreal Voluminous Original Mascara",
+    "asin": "B004BCXAM8",
+    "blurb": "A cult drugstore mascara that builds volume without clumps, from natural to full-on drama.",
+    "cta": "Build volume, no clumps",
+    "tags": "#mascara #lancome #lorealparis #makeupdupes"
+  },
+  {
+    "id": "photo-finish",
+    "category": "Complexion",
+    "title": "the smoothing, pore-blurring primer",
+    "hook": [
+      "Smooth, blurred skin",
+      "for less"
+    ],
+    "viral": "Smashbox Photo Finish Primer",
+    "dupe": "e.l.f. Poreless Face Primer",
+    "asin": "B00JZ4V6V4",
+    "blurb": "A silky primer that fills in pores and fine lines so foundation goes on smooth and lasts longer.",
+    "cta": "Blur pores, smooth base",
+    "tags": "#primer #smashbox #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "faux-filter-concealer",
+    "category": "Complexion",
+    "title": "the full-coverage matte concealer",
+    "hook": [
+      "Full-coverage concealer",
+      "for less"
+    ],
+    "viral": "Huda Beauty Faux Filter Concealer",
+    "dupe": "NYX Can't Stop Won't Stop Concealer",
+    "asin": "B07KBJ5VLL",
+    "blurb": "A full-coverage, long-wear matte concealer that covers dark circles and blemishes without creasing.",
+    "cta": "Cover, set, done",
+    "tags": "#concealer #hudabeauty #nyxcosmetics #makeupdupes"
   }
 ]
