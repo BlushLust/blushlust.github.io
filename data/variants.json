@@ -1,0 +1,210 @@
+{
+ "start": "2026-10-31",
+ "slots": [
+  "11:00",
+  "15:00",
+  "19:00"
+ ],
+ "pins": [
+  {
+   "id": "filter-glow",
+   "theme": "hotpink",
+   "hook": [
+    "The glow filter",
+    "everyone wants"
+   ]
+  },
+  {
+   "id": "liquid-blush",
+   "theme": "coral",
+   "hook": [
+    "That just-pinched",
+    "flush for less"
+   ]
+  },
+  {
+   "id": "brow-pencil",
+   "theme": "berry",
+   "hook": [
+    "Sharp, sculpted",
+    "brows for less"
+   ]
+  },
+  {
+   "id": "lip-oil",
+   "theme": "lilac",
+   "hook": [
+    "Juicy, glossy",
+    "lips for less"
+   ]
+  },
+  {
+   "id": "powder-filter",
+   "theme": "teal",
+   "hook": [
+    "Airbrushed skin,",
+    "smaller price"
+   ]
+  },
+  {
+   "id": "filter-glow",
+   "theme": "coral",
+   "hook": [
+    "Soft-focus skin",
+    "for way less"
+   ]
+  },
+  {
+   "id": "liquid-blush",
+   "theme": "berry",
+   "hook": [
+    "Viral liquid",
+    "blush under $10"
+   ]
+  },
+  {
+   "id": "brow-pencil",
+   "theme": "lilac",
+   "hook": [
+    "Hair-like brows",
+    "under $13"
+   ]
+  },
+  {
+   "id": "lip-oil",
+   "theme": "teal",
+   "hook": [
+    "The lip oil",
+    "dupe to try"
+   ]
+  },
+  {
+   "id": "powder-filter",
+   "theme": "hotpink",
+   "hook": [
+    "Blurred, soft",
+    "skin for less"
+   ]
+  },
+  {
+   "id": "filter-glow",
+   "theme": "berry",
+   "hook": [
+    "Skip the splurge:",
+    "glow for less"
+   ]
+  },
+  {
+   "id": "liquid-blush",
+   "theme": "lilac",
+   "hook": [
+    "The liquid blush",
+    "dupe to try"
+   ]
+  },
+  {
+   "id": "brow-pencil",
+   "theme": "teal",
+   "hook": [
+    "The skinny brow",
+    "pencil dupe"
+   ]
+  },
+  {
+   "id": "lip-oil",
+   "theme": "hotpink",
+   "hook": [
+    "Glossy lip oil",
+    "under $13"
+   ]
+  },
+  {
+   "id": "powder-filter",
+   "theme": "coral",
+   "hook": [
+    "The airbrush",
+    "powder dupe"
+   ]
+  },
+  {
+   "id": "filter-glow",
+   "theme": "lilac",
+   "hook": [
+    "The famous glow",
+    "filter dupe"
+   ]
+  },
+  {
+   "id": "liquid-blush",
+   "theme": "teal",
+   "hook": [
+    "One dot of",
+    "flush for less"
+   ]
+  },
+  {
+   "id": "brow-pencil",
+   "theme": "hotpink",
+   "hook": [
+    "Natural, defined",
+    "brows for less"
+   ]
+  },
+  {
+   "id": "lip-oil",
+   "theme": "coral",
+   "hook": [
+    "Skip the splurge:",
+    "juicy lips"
+   ]
+  },
+  {
+   "id": "powder-filter",
+   "theme": "berry",
+   "hook": [
+    "Setting powder",
+    "under $18"
+   ]
+  },
+  {
+   "id": "filter-glow",
+   "theme": "teal",
+   "hook": [
+    "Lit-from-within",
+    "for under $19"
+   ]
+  },
+  {
+   "id": "liquid-blush",
+   "theme": "hotpink",
+   "hook": [
+    "Skip the splurge:",
+    "blush for less"
+   ]
+  },
+  {
+   "id": "brow-pencil",
+   "theme": "coral",
+   "hook": [
+    "The cult brow",
+    "pencil for less"
+   ]
+  },
+  {
+   "id": "lip-oil",
+   "theme": "berry",
+   "hook": [
+    "The viral lip oil",
+    "for less"
+   ]
+  },
+  {
+   "id": "powder-filter",
+   "theme": "lilac",
+   "hook": [
+    "Filter-finish",
+    "skin for less"
+   ]
+  }
+ ]
+}
