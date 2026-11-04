@@ -11,6 +11,7 @@ Run locally:  python bot/run.py           (one new dupe)
               python bot/run.py --rebuild (only rebuild pages, no new dupe)
               python bot/run.py --rerender (re-draw every pin image + rebuild pages)
               python bot/run.py --roundup (pin the least-recently-pinned roundup / gift guide)
+              python bot/run.py --variant (pin a fresh bold design of a posted dupe)
 """
 import base64, csv, datetime as dt, html, json, os, sys
 from pathlib import Path
@@ -627,7 +628,10 @@ def pin_next_roundup():
     if not ready:
         print("No roundups to pin")
         return
-    r = min(ready, key=lambda x: (x.get("pinned") or [""])[-1])
+    # Nov-Dec: gift guides / holiday edits win ties
+    season = dt.date.today().month in (11, 12)
+    r = min(ready, key=lambda x: ((x.get("pinned") or [""])[-1],
+                                  0 if season and x.get("eyebrow") in ("Gift Guide", "Holiday Edit") else 1))
     fake = {"id": r["id"], "viral": r["title"], "dupe": "", "category": ""}
     pin_id = pinterest_post(fake, roundup_pin(r))
     if pin_id:
@@ -636,6 +640,44 @@ def pin_next_roundup():
         print(f"Pinned roundup {r['id']} -> {pin_id}")
     else:
         print(f"Roundup {r['id']} not pinned (no Pinterest secrets or Trial access)")
+
+
+# Already have 5 hand-scheduled bold variants each (data/variants.json, ideas #38/#39)
+VARIANT_SKIP = {"filter-glow", "liquid-blush", "brow-pencil", "lip-oil", "powder-filter"}
+# Next-best performers by Pinterest impressions (blush check Nov 4) go first
+VARIANT_FIRST = ["powder-blush", "lift-mascara", "lip-mask", "cloud-paint", "lip-gloss", "pillow-talk",
+                 "blush-wand", "mascara", "black-honey", "eyeliner-pencil", "setting-powder", "grip-primer"]
+
+
+def pin_next_variant():
+    """Fresh bold (v3) design of an already-posted dupe, pinned via the API - fresh Pins beat re-pins (idea #1)."""
+    items = json.loads(DATA.read_text(encoding="utf-8"))
+    today = dt.date.today().isoformat()
+    pool = [i for i in items if i.get("posted") and i["posted"] <= today and i.get("asin")
+            and i["id"] not in VARIANT_SKIP]
+    if not pool:
+        print("No dupes ready for a variant pin")
+        return
+    rank = {k: n for n, k in enumerate(VARIANT_FIRST)}
+    it = min(pool, key=lambda i: (len(i.get("variant_pins", [])), rank.get(i["id"], 999), i["posted"]))
+    n = len(it.get("variant_pins", [])) + 1
+    themes = list(BOLD_THEMES)
+    theme = themes[(len(it["id"]) + n) % len(themes)]
+    name = f"{it['id']}-c{n}"
+    render_pin_v3(it, ROOT / "assets" / "pins" / f"{name}.png", None, theme)
+    word = CAT_WORDS.get(it.get("category"), "makeup")
+    pin = {"title": f"{' '.join(it['hook'])} | {it['viral']} Dupe"[:100],
+           "description": pin_description(it),
+           "link": f"{SITE}/posts/{it['id']}.html?utm_source=pinterest&utm_medium=pin&utm_content=api-{name}",
+           "alt_text": f"{it['viral']} versus drugstore {word} dupe {it['dupe']}"[:500]}
+    fake = dict(it, id=name)
+    pin_id = pinterest_post(fake, pin)
+    if pin_id:
+        it.setdefault("variant_pins", []).append(today)
+        DATA.write_text(json.dumps(items, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        print(f"Pinned variant {name} ({theme}) -> {pin_id}")
+    else:
+        print(f"Variant {name} not pinned (no Pinterest secrets or Trial access)")
 
 
 def queue_manual(item):
@@ -677,6 +719,10 @@ def main():
             if rerender or not (ROOT / "assets" / "pins" / f"{i['id']}.png").exists():
                 render_pin(i, ROOT / "assets" / "pins" / f"{i['id']}.png")
             write_post(i, items, load_roundups())
+
+    if "--variant" in sys.argv:
+        pin_next_variant()
+        return
 
     if "--roundup" in sys.argv:
         pin_next_roundup()
