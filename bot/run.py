@@ -10,6 +10,7 @@ Each run:
 Run locally:  python bot/run.py           (one new dupe)
               python bot/run.py --rebuild (only rebuild pages, no new dupe)
               python bot/run.py --rerender (re-draw every pin image + rebuild pages)
+              python bot/run.py --roundup (pin the least-recently-pinned roundup / gift guide)
 """
 import base64, csv, datetime as dt, html, json, os, sys
 from pathlib import Path
@@ -515,7 +516,7 @@ API = os.environ.get("PINTEREST_API") or "https://api.pinterest.com/v5"
 SANDBOX = "api-sandbox." in API
 
 
-def pinterest_post(item):
+def pinterest_post(item, pin=None):
     """Returns the new pin id, or None if API secrets are not configured
     (or the app is still on Trial access and this is a production run)."""
     app_id, secret = os.environ.get("PINTEREST_APP_ID"), os.environ.get("PINTEREST_APP_SECRET")
@@ -559,9 +560,10 @@ def pinterest_post(item):
                     return hit
             return None
 
-        board_id = None if SANDBOX else find_board(CATEGORY_BOARDS.get(item.get("category"), ""))
+        first = (pin or {}).get("board") or CATEGORY_BOARDS.get(item.get("category"), "")
+        board_id = None if SANDBOX else find_board(first)
         if board_id:
-            print(f"Category board '{CATEGORY_BOARDS[item['category']]}' -> {board_id}")
+            print(f"Category board '{first}' -> {board_id}")
         board_id = board_id or find_board(BOARD_NAME)
         if not board_id and SANDBOX:
             # Sandbox starts empty - create a board there so the demo can pin to it
@@ -589,6 +591,8 @@ def pinterest_post(item):
         "alt_text": f"{item['viral']} versus drugstore dupe {item['dupe']}"[:500],
         "media_source": {"source_type": "image_base64", "content_type": "image/png", "data": img},
     }
+    if pin:
+        body.update({k: v for k, v in pin.items() if k in ("title", "description", "link", "alt_text")})
     r = requests.post(f"{api}/pins", headers=hdr, json=body, timeout=60)
     if r.status_code == 403 and not SANDBOX and '"code":29' in r.text.replace(" ", ""):
         print("Pinterest app is on Trial access - production Pins not allowed yet; queuing for manual posting")
@@ -598,6 +602,40 @@ def pinterest_post(item):
     pin = r.json()
     print(f"Pin created: id={pin.get('id')} title={pin.get('title')!r} link={pin.get('link')}")
     return pin.get("id")
+
+
+def roundup_pin(roundup):
+    """Pin text for a roundup / gift guide - roundups get the most Pinterest impressions."""
+    t = roundup["title"]
+    title = (t if "Amazon" in t else f"{t} on Amazon.ca")[:100]
+    desc = (f"{roundup['intro']} Every pick is a cheap drugstore dupe for a viral makeup product. "
+            "Tap the Pin to see the full list and shop each one on Amazon.ca. "
+            "#makeupdupes #drugstoremakeup #affordablemakeup #giftideas #beautygifts")[:500]
+    stamp = dt.date.today().strftime("%Y%m%d")
+    return {"title": title, "description": desc,
+            "link": f"{SITE}/posts/{roundup['id']}.html?utm_source=pinterest&utm_medium=pin&utm_content=api-{roundup['id']}-{stamp}",
+            "alt_text": roundup["title"][:500],
+            "board": GIFT_BOARD if roundup.get("eyebrow") == "Gift Guide" else BOARD_NAME}
+
+
+def pin_next_roundup():
+    """Re-pin the roundup that was pinned least recently (never-pinned first). Logs the date in roundups.json."""
+    rs = load_roundups()
+    # only roundups whose page + image the nightly run has already built (new ones wait a day)
+    ready = [x for x in rs if (ROOT / "posts" / f"{x['id']}.html").exists()
+             and (ROOT / "assets" / "pins" / f"{x['id']}.png").exists()]
+    if not ready:
+        print("No roundups to pin")
+        return
+    r = min(ready, key=lambda x: (x.get("pinned") or [""])[-1])
+    fake = {"id": r["id"], "viral": r["title"], "dupe": "", "category": ""}
+    pin_id = pinterest_post(fake, roundup_pin(r))
+    if pin_id:
+        r.setdefault("pinned", []).append(dt.date.today().isoformat())
+        ROUNDUPS.write_text(json.dumps(rs, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        print(f"Pinned roundup {r['id']} -> {pin_id}")
+    else:
+        print(f"Roundup {r['id']} not pinned (no Pinterest secrets or Trial access)")
 
 
 def queue_manual(item):
@@ -639,6 +677,10 @@ def main():
             if rerender or not (ROOT / "assets" / "pins" / f"{i['id']}.png").exists():
                 render_pin(i, ROOT / "assets" / "pins" / f"{i['id']}.png")
             write_post(i, items, load_roundups())
+
+    if "--roundup" in sys.argv:
+        pin_next_roundup()
+        return
 
     if "--demo" in sys.argv:
         # Demo / review run: pin the next queued dupe (normally to the Sandbox) and change nothing on the site
