@@ -88,11 +88,11 @@
       "for less"
     ],
     "viral": "Laura Mercier Translucent Loose Setting Powder",
-    "dupe": "Coty Airspun Loose Face Powder",
-    "asin": "B0BDW27227",
-    "blurb": "A finely milled powder to lock makeup in place and blur shine. Airspun has been a cult classic for decades.",
-    "cta": "A cult classic for a reason",
-    "tags": "#settingpowder #makeupdupes #drugstoremakeup #bakingmakeup",
+    "dupe": "e.l.f. High Definition Powder",
+    "asin": "B0087HOAWC",
+    "blurb": "A finely milled loose powder that sets makeup, blurs fine lines and softens shine, at a fraction of the price.",
+    "cta": "Blur and set for under $10",
+    "tags": "#settingpowder #lauramercier #elfcosmetics #makeupdupes",
     "posted": "2026-10-19"
   },
   {
@@ -1048,7 +1048,7 @@
       "for less"
     ],
     "viral": "Dior Backstage Rosy Glow Blush",
-    "dupe": "Revlon Blush in Wild About Violet",
+    "dupe": "Revlon Powder Blush in Rosy Rendezvous",
     "asin": "B01KI40CY6",
     "blurb": "A bright pink blush that gives cheeks a fresh, rosy glow.",
     "cta": "Fresh, rosy glow",
@@ -1319,6 +1319,21 @@
     "pin_id": "1138425612105792980"
   },
   {
+    "id": "glitter-eyeshadow",
+    "category": "Eyes",
+    "title": "the party glitter shadow",
+    "hook": [
+      "Holiday party sparkle",
+      "for under $8"
+    ],
+    "viral": "Stila Glitter & Glow Liquid Eye Shadow",
+    "dupe": "e.l.f. Fine As Fleck Glitter Eyeshadow",
+    "asin": "B0FWTXBFDS",
+    "blurb": "A sheer, buildable glitter shadow that adds a sparkly wash of light to lids for holiday parties without the fallout.",
+    "cta": "Party-ready sparkle",
+    "tags": "#glittereyeshadow #stila #elfcosmetics #holidaymakeup #makeupdupes"
+  },
+  {
     "id": "fix-plus",
     "category": "Complexion",
     "title": "the dewy setting mist",
@@ -1332,6 +1347,36 @@
     "blurb": "A fine, hydrating mist that sets makeup and melts powder into skin for a fresh, dewy finish.",
     "cta": "Mist, set, glow",
     "tags": "#settingspray #maccosmetics #nyxcosmetics #makeupdupes"
+  },
+  {
+    "id": "always-naked",
+    "category": "Eyes",
+    "title": "the neutral eyeshadow palette",
+    "hook": [
+      "Naked palette look",
+      "for under $6"
+    ],
+    "viral": "Urban Decay Naked Eyeshadow Palette",
+    "dupe": "Wet n Wild Always Naked Palette",
+    "asin": "B09NX8R28P",
+    "blurb": "Everyday neutral mattes and shimmers in one compact palette, the same wearable nude-to-smoky range for a tiny fraction of the price.",
+    "cta": "Neutral eyes, tiny price",
+    "tags": "#eyeshadowpalette #urbandecay #wetnwild #makeupdupes"
+  },
+  {
+    "id": "putty-blush",
+    "category": "Cheeks",
+    "title": "the cream-to-powder blush",
+    "hook": [
+      "Beachy flushed cheeks",
+      "for less"
+    ],
+    "viral": "Tower 28 BeachPlease Lip + Cheek Cream Blush",
+    "dupe": "e.l.f. Putty Blush in Bora Bora",
+    "asin": "B08T7CY6JC",
+    "blurb": "A creamy, highly pigmented blush that melts into skin and sets to a soft, natural flush.",
+    "cta": "Sun-kissed flush for under $10",
+    "tags": "#creamblush #tower28 #elfcosmetics #makeupdupes"
   },
   {
     "id": "hypnose-mascara",
@@ -1349,6 +1394,21 @@
     "tags": "#mascara #lancome #lorealparis #makeupdupes"
   },
   {
+    "id": "lash-paradise",
+    "category": "Lashes",
+    "title": "the big-volume mascara",
+    "hook": [
+      "Big, fluffy lashes",
+      "for less"
+    ],
+    "viral": "Benefit They're Real! Lengthening Mascara",
+    "dupe": "L'Oreal Voluminous Lash Paradise Mascara",
+    "asin": "B06XF2TR11",
+    "blurb": "A soft, full brush that builds long, fluffy volume without clumps for a false-lash look.",
+    "cta": "Falsies look, drugstore price",
+    "tags": "#mascara #benefitcosmetics #loreal #makeupdupes"
+  },
+  {
     "id": "photo-finish",
     "category": "Complexion",
     "title": "the smoothing, pore-blurring primer",
@@ -1364,6 +1424,21 @@
     "tags": "#primer #smashbox #elfcosmetics #makeupdupes"
   },
   {
+    "id": "lip-comfort-oil",
+    "category": "Lips",
+    "title": "the tinted lip oil",
+    "hook": [
+      "Glossy, comfy lips",
+      "for less"
+    ],
+    "viral": "Clarins Lip Comfort Oil",
+    "dupe": "e.l.f. Glow Reviver Lip Oil in Pink Quartz",
+    "asin": "B0CL8W1HZQ",
+    "blurb": "A tinted, non-sticky lip oil that hydrates and leaves a juicy, glassy shine with a sheer wash of colour.",
+    "cta": "Juicy shine for under $11",
+    "tags": "#lipoil #clarins #elfcosmetics #makeupdupes"
+  },
+  {
     "id": "faux-filter-concealer",
     "category": "Complexion",
     "title": "the full-coverage matte concealer",
@@ -1377,5 +1452,20 @@
     "blurb": "A full-coverage, long-wear matte concealer that covers dark circles and blemishes without creasing.",
     "cta": "Cover, set, done",
     "tags": "#concealer #hudabeauty #nyxcosmetics #makeupdupes"
+  },
+  {
+    "id": "blushlighter",
+    "category": "Glow",
+    "title": "the glowy blush",
+    "hook": [
+      "Blush + glow in one",
+      "for under $9"
+    ],
+    "viral": "Hourglass Ambient Lighting Blush",
+    "dupe": "Wet n Wild MegaGlo Hello Halo Blushlighter",
+    "asin": "B082YPL2SV",
+    "blurb": "A blush and highlighter in one that gives cheeks a soft colour with a lit-from-within glow.",
+    "cta": "Glow and colour in one swipe",
+    "tags": "#blush #hourglass #wetnwild #highlighter #makeupdupes"
   }
 ]

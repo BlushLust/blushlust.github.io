@@ -368,5 +368,100 @@
       "Lip + cheek stick",
       "Glow primer"
     ]
+  },
+  {
+    "id": "secret-santa-under-10",
+    "eyebrow": "Gift Guide",
+    "kicker": "SECRET SANTA",
+    "hook": [
+      "Makeup gifts",
+      "under $10"
+    ],
+    "title": "8 Viral Makeup Dupes Under $10 (Secret Santa Gift Guide)",
+    "intro": "Cult-favourite looks for under $10 each: easy Secret Santa and stocking-stuffer picks for the beauty lover on your list, all on Amazon.ca.",
+    "items": [
+      "ruby-woo",
+      "pillow-talk-gloss",
+      "lip-balm",
+      "killawatt-highlight",
+      "brow-gel",
+      "setting-spray",
+      "easy-bake-banana",
+      "warm-wishes"
+    ],
+    "labels": [
+      "Red matte lipstick",
+      "Nude lip gloss",
+      "Lip balm",
+      "Highlighter",
+      "Brow gel",
+      "Setting spray",
+      "Baking powder",
+      "Putty bronzer"
+    ],
+    "max_price": 10
+  },
+  {
+    "id": "holiday-party-glam",
+    "eyebrow": "Holiday Edit",
+    "kicker": "HOLIDAY PARTY",
+    "hook": [
+      "Holiday party glam",
+      "for less"
+    ],
+    "title": "Holiday Party Glam: 8 Drugstore Dupes for a Full Festive Look",
+    "intro": "Red lips, big lashes and serious glow: the viral holiday-party look built entirely from drugstore dupes on Amazon.ca.",
+    "items": [
+      "ruby-woo",
+      "iced-out",
+      "killawatt-highlight",
+      "liquid-liner",
+      "mascara",
+      "lip-gloss",
+      "highlight-wand",
+      "ct-setting-spray"
+    ],
+    "labels": [
+      "Red lipstick",
+      "Chrome highlighter",
+      "Powder highlighter",
+      "Liquid liner",
+      "Volume mascara",
+      "Lip gloss",
+      "Highlight wand",
+      "Setting spray"
+    ]
+  },
+  {
+    "id": "gifts-blush-lover",
+    "eyebrow": "Holiday Edit",
+    "kicker": "GIFT GUIDE",
+    "hook": [
+      "Gifts for the",
+      "blush lover"
+    ],
+    "title": "Gifts for the Blush Lover: 8 Viral Blush Dupes Under $20",
+    "intro": "Liquid, cream, powder and stick blushes that copy the viral favourites: gift-ready picks under $20 on Amazon.ca.",
+    "items": [
+      "liquid-blush",
+      "cloud-paint",
+      "blush-wand",
+      "rhode-pocket",
+      "milk-lip-cheek",
+      "flush-balm",
+      "nars-buttermelt",
+      "powder-blush"
+    ],
+    "labels": [
+      "Liquid blush",
+      "Gel-cream blush",
+      "Blush wand",
+      "Blush stick",
+      "Lip + cheek stick",
+      "Cream blush",
+      "Powder blush",
+      "Baked blush"
+    ],
+    "max_price": 20
   }
 ]
