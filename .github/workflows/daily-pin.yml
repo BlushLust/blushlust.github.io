@@ -4,6 +4,7 @@ on:
   schedule:
     - cron: "47 0 * * *"   # every day ~8:47 pm Toronto time (00:47 UTC): new dupe
     - cron: "13 18 * * *"  # every day ~1:13 pm Toronto time (18:13 UTC): re-pin a roundup / gift guide
+    - cron: "7 14 * * *"   # every day ~9:07 am Toronto time (14:07 UTC): fresh bold design of a posted dupe
   workflow_dispatch:        # adds a "Run workflow" button for manual runs
     inputs:
       demo:
@@ -46,8 +47,16 @@ jobs:
           PINTEREST_REFRESH_TOKEN: ${{ secrets.PINTEREST_REFRESH_TOKEN }}
           PINTEREST_BOARD: DUPES
         run: python bot/run.py --roundup
+      - name: Pin a fresh bold variant of a posted dupe (morning run)
+        if: ${{ github.event.schedule == '7 14 * * *' }}
+        env:
+          PINTEREST_APP_ID: ${{ secrets.PINTEREST_APP_ID }}
+          PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
+          PINTEREST_REFRESH_TOKEN: ${{ secrets.PINTEREST_REFRESH_TOKEN }}
+          PINTEREST_BOARD: DUPES
+        run: python bot/run.py --variant
       - name: Make today's dupe (and pin it if Pinterest is connected)
-        if: ${{ !inputs.demo && github.event.schedule != '13 18 * * *' }}
+        if: ${{ !inputs.demo && github.event.schedule != '13 18 * * *' && github.event.schedule != '7 14 * * *' }}
         env:
           PINTEREST_APP_ID: ${{ secrets.PINTEREST_APP_ID }}
           PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
