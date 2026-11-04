@@ -11,6 +11,11 @@ on:
         description: "Demo run: pin to Pinterest Sandbox only, don't change the site"
         type: boolean
         default: false
+      mode:
+        description: "What to pin on a manual run"
+        type: choice
+        options: [dupe, roundup, variant]
+        default: dupe
 
 permissions:
   contents: write
@@ -40,7 +45,7 @@ jobs:
           PINTEREST_API: https://api-sandbox.pinterest.com/v5
         run: python bot/run.py --demo
       - name: Pin a roundup / gift guide (midday run)
-        if: ${{ github.event.schedule == '13 18 * * *' }}
+        if: ${{ github.event.schedule == '13 18 * * *' || inputs.mode == 'roundup' }}
         env:
           PINTEREST_APP_ID: ${{ secrets.PINTEREST_APP_ID }}
           PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
@@ -48,7 +53,7 @@ jobs:
           PINTEREST_BOARD: DUPES
         run: python bot/run.py --roundup
       - name: Pin a fresh bold variant of a posted dupe (morning run)
-        if: ${{ github.event.schedule == '7 14 * * *' }}
+        if: ${{ github.event.schedule == '7 14 * * *' || inputs.mode == 'variant' }}
         env:
           PINTEREST_APP_ID: ${{ secrets.PINTEREST_APP_ID }}
           PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
@@ -56,7 +61,7 @@ jobs:
           PINTEREST_BOARD: DUPES
         run: python bot/run.py --variant
       - name: Make today's dupe (and pin it if Pinterest is connected)
-        if: ${{ !inputs.demo && github.event.schedule != '13 18 * * *' && github.event.schedule != '7 14 * * *' }}
+        if: ${{ !inputs.demo && github.event.schedule != '13 18 * * *' && github.event.schedule != '7 14 * * *' && inputs.mode != 'roundup' && inputs.mode != 'variant' }}
         env:
           PINTEREST_APP_ID: ${{ secrets.PINTEREST_APP_ID }}
           PINTEREST_APP_SECRET: ${{ secrets.PINTEREST_APP_SECRET }}
