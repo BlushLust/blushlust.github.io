@@ -632,7 +632,7 @@ def pin_next_roundup():
     season = dt.date.today().month in (11, 12)
     r = min(ready, key=lambda x: ((x.get("pinned") or [""])[-1],
                                   0 if season and x.get("eyebrow") in ("Gift Guide", "Holiday Edit") else 1))
-    fake = {"id": r["id"], "viral": r["title"], "dupe": "", "category": ""}
+    fake = {"id": r["id"], "viral": r["title"], "dupe": "", "category": "", "blurb": r["intro"], "tags": ""}
     pin_id = pinterest_post(fake, roundup_pin(r))
     if pin_id:
         r.setdefault("pinned", []).append(dt.date.today().isoformat())
