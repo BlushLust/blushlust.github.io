@@ -255,7 +255,10 @@
       "Eyeshadow palette",
       "Glitter eyeshadow"
     ],
-    "max_price": 15
+    "max_price": 15,
+    "pinned": [
+      "2026-11-05"
+    ]
   },
   {
     "id": "dupes-under-8",
