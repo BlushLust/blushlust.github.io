@@ -237,23 +237,23 @@
     "intro": "Mascaras and liners that copy the viral luxury picks, at drugstore prices. Stocking-stuffer friendly and all on Amazon.ca.",
     "items": [
       "mascara",
-      "lift-mascara",
       "thrive-mascara",
       "superhero-mascara",
       "roller-lash",
       "liquid-liner",
       "eyeliner-pencil",
-      "eyeshadow-palette"
+      "eyeshadow-palette",
+      "glitter-eyeshadow"
     ],
     "labels": [
       "Sky-high mascara",
-      "Lifting mascara",
       "Tubing mascara",
       "Volume mascara",
       "Curling mascara",
       "Liquid liner",
       "Waterproof pencil",
-      "Eyeshadow palette"
+      "Eyeshadow palette",
+      "Glitter eyeshadow"
     ],
     "max_price": 15
   },

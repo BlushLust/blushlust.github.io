@@ -1469,5 +1469,35 @@
     "blurb": "A blush and highlighter in one that gives cheeks a soft colour with a lit-from-within glow.",
     "cta": "Glow and colour in one swipe",
     "tags": "#blush #hourglass #wetnwild #highlighter #makeupdupes"
+  },
+  {
+    "id": "hoola-bronzer",
+    "category": "Complexion",
+    "title": "the matte bronzer",
+    "hook": [
+      "Matte bronze glow",
+      "for under $9"
+    ],
+    "viral": "Benefit Hoola Matte Bronzer",
+    "dupe": "Wet n Wild Color Icon Bronzer in What Shady Beaches",
+    "asin": "B07M7NGVW7",
+    "blurb": "A soft matte powder bronzer that warms up the face and sculpts cheekbones without any shimmer.",
+    "cta": "Sun-kissed, no sun needed",
+    "tags": "#bronzer #benefit #wetnwild #hoola #makeupdupes"
+  },
+  {
+    "id": "colossal-mascara",
+    "category": "Eyes",
+    "title": "the big-volume mascara",
+    "hook": [
+      "Big, bold lashes",
+      "for under $11"
+    ],
+    "viral": "Lancôme Monsieur Big Mascara",
+    "dupe": "Maybelline The Colossal Volum' Express Washable Mascara",
+    "asin": "B002YLEQ2Q",
+    "blurb": "A volumizing mascara with a big brush that builds thick, dramatic lashes in a couple of coats.",
+    "cta": "Volume on a budget",
+    "tags": "#mascara #lancome #maybelline #volume #makeupdupes"
   }
 ]
