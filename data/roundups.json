@@ -411,7 +411,10 @@
       "Baking powder",
       "Putty bronzer"
     ],
-    "max_price": 10
+    "max_price": 10,
+    "pinned": [
+      "2026-11-07"
+    ]
   },
   {
     "id": "holiday-party-glam",
