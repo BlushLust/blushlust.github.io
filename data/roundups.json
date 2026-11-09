@@ -480,6 +480,9 @@
       "Powder blush",
       "Baked blush"
     ],
-    "max_price": 20
+    "max_price": 20,
+    "pinned": [
+      "2026-11-09"
+    ]
   }
 ]
