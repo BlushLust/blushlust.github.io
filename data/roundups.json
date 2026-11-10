@@ -64,7 +64,10 @@
       "Eye pencil",
       "Setting powder"
     ],
-    "max_price": 10
+    "max_price": 10,
+    "pinned": [
+      "2026-11-10"
+    ]
   },
   {
     "id": "glow-edit",
