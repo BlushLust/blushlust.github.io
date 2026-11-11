@@ -366,7 +366,7 @@ def pin_description(item):
 
 def _related(item, items, n=3):
     """Same-category dupes (internal links) to keep shoppers browsing."""
-    same = [i for i in items if i["id"] != item["id"] and i["category"] == item["category"]]
+    same = [i for i in items if i["id"] != item["id"] and i["category"] == item["category"] and i.get("posted")]
     start = sum(ord(c) for c in item["id"]) % max(len(same), 1)
     return (same[start:] + same[:start])[:n]
 

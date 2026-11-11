@@ -98,6 +98,12 @@ def main():
             else:
                 errors.append(f"{name}: unrecognised Amazon link path {u.path}")
 
+    # Internal links: every relative .html link must point to a page that exists (no 404s)
+    for page in pages:
+        for href in re.findall(r'href="([^"#:?]+\.html)"', page.read_text(encoding="utf-8")):
+            if not (page.parent / href).resolve().exists():
+                errors.append(f"{page.relative_to(ROOT)}: broken internal link -> {href}")
+
     for w in warnings:
         print("WARN ", w)
     for e in errors:
