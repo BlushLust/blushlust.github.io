@@ -654,7 +654,7 @@
     ],
     "viral": "Thrive Causemetics Liquid Lash Extensions Mascara",
     "dupe": "e.l.f. Lash XTNDR Tubing Mascara",
-    "asin": "B0F3WSF8Q3",
+    "asin": "B0CPFY2SZM",
     "blurb": "Tubing mascara that coats each lash for long, defined, extension-like length that won't smudge.",
     "cta": "Long, defined lashes",
     "tags": "#mascaradupe #thrivecausemetics #elfcosmetics #makeupdupes",
@@ -701,8 +701,8 @@
       "liner for less"
     ],
     "viral": "Charlotte Tilbury Lip Cheat in Pillow Talk",
-    "dupe": "NYX Slim Lip Pencil in Peekaboo Neutral",
-    "asin": "B003N3M5Q8",
+    "dupe": "NYX Retractable Lip Liner in Nude Pink",
+    "asin": "B005G9LPDQ",
     "blurb": "A soft pinky-nude liner to shape and define your lips before your favourite lipstick.",
     "cta": "Same pinky-nude",
     "tags": "#lipliner #pillowtalk #nyxcosmetics #makeupdupes",
@@ -845,8 +845,8 @@
       "for less"
     ],
     "viral": "Charlotte Tilbury Cheek to Chic in Pillow Talk",
-    "dupe": "Milani Baked Blush in Rosa Romantica",
-    "asin": "B0G59RRB2S",
+    "dupe": "Milani Baked Blush in Dolce Pink",
+    "asin": "B0G59S2VNY",
     "blurb": "A soft, rosy-nude blush for a natural, healthy flush.",
     "cta": "Same rosy flush",
     "tags": "#blush #pillowtalk #milani #makeupdupes",
@@ -894,7 +894,7 @@
     ],
     "viral": "YSL Vinyl Cream Lip Stain",
     "dupe": "e.l.f. Glossy Lip Stain",
-    "asin": "B0F8VKQKJT",
+    "asin": "B0B4F85K9R",
     "blurb": "Glossy colour that stains for long wear with a vinyl-like shine.",
     "cta": "Glossy, lasting colour",
     "tags": "#lipstain #ysl #elfcosmetics #makeupdupes",
@@ -941,8 +941,8 @@
       "for less"
     ],
     "viral": "Charlotte Tilbury Lip Lustre in Pillow Talk",
-    "dupe": "Wet n Wild MegaSlicks Lip Gloss in Snuggle Sesh",
-    "asin": "B01EO2GCU6",
+    "dupe": "Wet n Wild MegaSlicks Lip Gloss in Rose Gold",
+    "asin": "B01EO2GXTQ",
     "blurb": "A sheer pinky-nude gloss for glossy, flattering lips.",
     "cta": "Same pinky-nude shine",
     "tags": "#lipgloss #pillowtalk #wetnwild #makeupdupes",
@@ -1532,5 +1532,110 @@
     "blurb": "A volumizing mascara with a big brush that builds thick, dramatic lashes in a couple of coats.",
     "cta": "Volume on a budget",
     "tags": "#mascara #lancome #maybelline #volume #makeupdupes"
+  },
+  {
+    "id": "brow-harmony",
+    "category": "Brows",
+    "title": "The fluffy brow pencil",
+    "hook": [
+      "Fluffy, defined brows",
+      "for under $5"
+    ],
+    "viral": "Rare Beauty Brow Harmony Pencil & Gel",
+    "dupe": "e.l.f. Instant Lift Brow Pencil",
+    "asin": "B00WAJAKOU",
+    "blurb": "A dual-ended fine brow pencil with a spoolie to fill, shape and brush up natural-looking brows.",
+    "cta": "Brows on a budget",
+    "tags": "#browpencil #rarebeauty #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "lip-contour",
+    "category": "Lips",
+    "title": "The lip-sculpting liner",
+    "hook": [
+      "Sculpted, fuller lips",
+      "for $6"
+    ],
+    "viral": "Huda Beauty Lip Contour 2.0",
+    "dupe": "e.l.f. Love Triangle Lip Filler Liner",
+    "asin": "B09XMWCY5L",
+    "blurb": "A 2-in-1 liner with a triangle tip to outline and fill, for a fuller-looking, defined lip.",
+    "cta": "Overline for less",
+    "tags": "#lipliner #hudabeauty #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "mac-spice",
+    "category": "Lips",
+    "title": "The cult nude-brown liner",
+    "hook": [
+      "The 90s nude liner",
+      "for under $10"
+    ],
+    "viral": "MAC Lip Pencil in Spice",
+    "dupe": "NYX Retractable Lip Liner in Nude",
+    "asin": "B005G9LPH2",
+    "blurb": "A creamy, twist-up nude liner for that defined 90s-style lip, no sharpener needed.",
+    "cta": "90s lips for less",
+    "tags": "#lipliner #maclipstick #nyxcosmetics #90smakeup #makeupdupes"
+  },
+  {
+    "id": "stila-liner",
+    "category": "Eyes",
+    "title": "The felt-tip liner",
+    "hook": [
+      "Sharp, smudge-proof wings",
+      "for under $10"
+    ],
+    "viral": "Stila Stay All Day Waterproof Liquid Eye Liner",
+    "dupe": "e.l.f. H2O Proof Eyeliner Pen",
+    "asin": "B07MWT5JV4",
+    "blurb": "A waterproof felt-tip liner pen for crisp, long-lasting wings and tightlining.",
+    "cta": "Wings that last",
+    "tags": "#eyeliner #stila #elfcosmetics #wingedliner #makeupdupes"
+  },
+  {
+    "id": "glow-balm-stick",
+    "category": "Lips",
+    "title": "The tinted glow balm",
+    "hook": [
+      "Juicy, glowy lips",
+      "for less"
+    ],
+    "viral": "Dior Addict Lip Glow Balm",
+    "dupe": "e.l.f. Glow Reviver Lip Oil Stick",
+    "asin": "B0HBD6T253",
+    "blurb": "A tinted, oil-infused balm stick that melts on for a glossy, hydrated glow.",
+    "cta": "Same glowy tint",
+    "tags": "#lipbalm #dior #elfcosmetics #makeupdupes"
+  },
+  {
+    "id": "badgal-bang",
+    "category": "Lashes",
+    "title": "The big-volume mascara",
+    "hook": [
+      "Bang-on volume",
+      "for less"
+    ],
+    "viral": "Benefit BADgal BANG! Volumizing Mascara",
+    "dupe": "Milani Highly Rated Anti-Gravity Mascara",
+    "asin": "B09RPB33KN",
+    "blurb": "A lightweight volumizing and lengthening mascara that lifts lashes without weighing them down.",
+    "cta": "Big lashes for less",
+    "tags": "#mascara #benefitcosmetics #milani #makeupdupes"
+  },
+  {
+    "id": "dandelion-blush",
+    "category": "Cheeks",
+    "title": "The baby-pink blush",
+    "hook": [
+      "Soft, brightening pink",
+      "for less"
+    ],
+    "viral": "Benefit Dandelion Brightening Blush",
+    "dupe": "Physicians Formula Powder Palette Blush in Blushing Rose",
+    "asin": "B000W97M82",
+    "blurb": "A multi-tone powder blush that swirls into a soft, brightening rosy-pink flush.",
+    "cta": "Same soft flush",
+    "tags": "#blush #benefitcosmetics #physiciansformula #makeupdupes"
   }
 ]
