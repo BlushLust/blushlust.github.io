@@ -301,7 +301,10 @@
       "Lip & cheek stick",
       "Highlighter"
     ],
-    "max_price": 8
+    "max_price": 8,
+    "pinned": [
+      "2026-11-15"
+    ]
   },
   {
     "id": "gifts-glow-girl",
