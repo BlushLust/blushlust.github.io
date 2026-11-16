@@ -1657,5 +1657,50 @@
     "blurb": "A multi-tone powder blush that swirls into a soft, brightening rosy-pink flush.",
     "cta": "Same soft flush",
     "tags": "#blush #benefitcosmetics #physiciansformula #makeupdupes"
+  },
+  {
+    "id": "climax-mascara",
+    "category": "Lashes",
+    "title": "The lifted volume mascara",
+    "hook": [
+      "NARS Climax lashes",
+      "for less"
+    ],
+    "viral": "NARS Climax Mascara",
+    "dupe": "Maybelline Falsies Lash Lift Mascara",
+    "asin": "B07W3PVLW4",
+    "blurb": "Volume plus lift in one coat, with a curved brush that sweeps lashes up and out. Washable formula.",
+    "cta": "Lift and volume",
+    "tags": "#mascara #narsclimax #maybelline #makeupdupes"
+  },
+  {
+    "id": "cheek-pop",
+    "category": "Cheeks",
+    "title": "The berry pop blush",
+    "hook": [
+      "Cheek Pop flush",
+      "under $6"
+    ],
+    "viral": "Clinique Cheek Pop in Plum Pop",
+    "dupe": "Wet n Wild Color Icon Blush in Mellow Wine",
+    "asin": "B082YPZ38Q",
+    "blurb": "A buildable berry powder blush that gives the same just-pinched pop for a fraction of the price.",
+    "cta": "Berry flush",
+    "tags": "#blush #cliniquecheekpop #wetnwild #makeupdupes"
+  },
+  {
+    "id": "rock-n-kohl",
+    "category": "Eyes",
+    "title": "The smudgy kohl liner",
+    "hook": [
+      "Rock 'N' Kohl smoke",
+      "under $8"
+    ],
+    "viral": "Charlotte Tilbury Rock 'N' Kohl Eye Pencil",
+    "dupe": "Rimmel Exaggerate Waterproof Eye Definer",
+    "asin": "B001V9LBAM",
+    "blurb": "A creamy, waterproof pencil with a built-in smudger for an easy smoky line.",
+    "cta": "Easy smoky eye",
+    "tags": "#eyeliner #charlottetilbury #rimmel #makeupdupes"
   }
 ]
